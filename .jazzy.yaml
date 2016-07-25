@@ -1,0 +1,7 @@
+module: MaterialMotionCoreAnimationFamily
+module_version: 1.0.0
+umbrella_header: src/MaterialMotionCoreAnimationFamily.h
+objc: true
+sdk: iphonesimulator
+github_url: https://github.com/material-motion/material-motion-family-coreanimation-swift
+github_file_prefix: https://github.com/material-motion/material-motion-family-coreanimation-swift/tree/v1.0.0
