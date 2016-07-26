@@ -4,6 +4,9 @@
 [submodule "third_party/arc-hook-conphig"]
 	path = third_party/arc-hook-conphig
 	url = https://github.com/material-foundation/arc-hook-conphig.git
+[submodule "third_party/arc-proselint"]
+	path = third_party/arc-proselint
+	url = https://github.com/google/arc-proselint.git
 [submodule "third_party/arc-jazzy-linter"]
 	path = third_party/arc-jazzy-linter
 	url = https://github.com/google/arc-jazzy-linter.git
