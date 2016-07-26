@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "8.0"
   s.requires_arc = true
 
-  s.public_header_files = "src/*.h"
-  s.source_files = "src/*.{h,m,mm}", "src/private/*.{h,m,mm}"
-  s.header_mappings_dir = "src"
+  s.source_files = "src/*.{swift}", "src/private/*.{swift}"
+
+  s.dependency "MaterialMotionRuntime"
 end

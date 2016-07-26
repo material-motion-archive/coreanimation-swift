@@ -14,4 +14,19 @@
  limitations under the License.
  */
 
-// TODO: Import public headers.
+import XCTest
+import Foundation
+import MaterialMotionRuntime
+
+@objc class SchedulerDelegate: NSObject, MDMSchedulerDelegate {
+  var activityStateDidChange = false
+  var didIdleExpectation: XCTestExpectation?
+
+  func schedulerActivityStateDidChange(_ scheduler: MDMScheduler) {
+    self.activityStateDidChange = true
+
+    if scheduler.activityState == .idle {
+      didIdleExpectation?.fulfill()
+    }
+  }
+}
