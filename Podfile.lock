@@ -16,12 +16,12 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   MaterialMotionRuntime:
-    :commit: 4fbba4b2db5ca5006c139238a01b8856ce32aa3f
+    :commit: c02df1600b820b14a4f1faf9a5941c14a05adf4f
     :git: git@github.com:material-motion/material-motion-runtime-objc.git
 
 SPEC CHECKSUMS:
   MaterialMotionCoreAnimationFamily: 363b6b0343e46950478ab5487a38445cf966de57
-  MaterialMotionRuntime: f74a3f339e5123951b59eb9d64f8890d5a460523
+  MaterialMotionRuntime: c1baf57914298b91634d2089d09341e6cd9f65a1
 
 PODFILE CHECKSUM: 8826d7b38972cc6eee2699702b8c1c5cc4ad1c21
 

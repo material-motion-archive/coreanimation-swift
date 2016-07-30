@@ -20,7 +20,7 @@ import MaterialMotionRuntime
 /**
  Conforming to MDMPlan enables use of CAAnimation objects as plans in a Material Motion runtime.
  */
-extension CAAnimation: MDMPlan {
+extension CAAnimation: Plan {
 
   /** Implementing this method bridges Core Animation with the Material Motion runtime. */
   public func performerClass() -> AnyClass {
@@ -29,10 +29,10 @@ extension CAAnimation: MDMPlan {
 }
 
 /** A light-weight Core Animation Material Motion performer. */
-@objc class CoreAnimationPerformer: NSObject, MDMPlanPerforming, MDMDelegatedPerforming {
+@objc class CoreAnimationPerformer: NSObject, PlanPerforming, DelegatedPerforming {
   let target: CALayer
-  var willStart: MDMDelegatedPerformanceTokenReturnBlock!
-  var didEnd: MDMDelegatedPerformanceTokenArgBlock!
+  var willStart: DelegatedPerformanceTokenReturnBlock!
+  var didEnd: DelegatedPerformanceTokenArgBlock!
 
   required init(target: AnyObject) {
     if let view = target as? UIView {
@@ -42,7 +42,7 @@ extension CAAnimation: MDMPlan {
     }
   }
 
-  func add(_ plan: MDMPlan) {
+  func add(plan: Plan) {
     CATransaction.begin()
 
     guard let token = self.willStart() else { return }
@@ -56,7 +56,7 @@ extension CAAnimation: MDMPlan {
     CATransaction.commit()
   }
 
-  func setDelegatedPerformanceWillStart(_ willStart: MDMDelegatedPerformanceTokenReturnBlock, didEnd: MDMDelegatedPerformanceTokenArgBlock) {
+  func setDelegatedPerformanceWillStart(_ willStart: DelegatedPerformanceTokenReturnBlock, didEnd: DelegatedPerformanceTokenArgBlock) {
     self.willStart = willStart
     self.didEnd = didEnd
   }

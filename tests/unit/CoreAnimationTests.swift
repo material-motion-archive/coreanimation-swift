@@ -28,13 +28,13 @@ class CoreAnimationTests: XCTestCase {
 
     let view = UIView()
 
-    let transaction = MDMTransaction()
-    transaction.add(animation, toTarget: view)
+    let transaction = Transaction()
+    transaction.add(plan: animation, to: view)
 
-    let scheduler = MDMScheduler()
+    let scheduler = Scheduler()
     scheduler.commit(transaction)
 
-    let delegate = SchedulerDelegate()
+    let delegate = TestableSchedulerDelegate()
     delegate.didIdleExpectation = expectation(description: "Did idle")
     scheduler.delegate = delegate
 
@@ -51,13 +51,13 @@ class CoreAnimationTests: XCTestCase {
 
     let view = UIView()
 
-    let transaction = MDMTransaction()
-    transaction.add(animation, toTarget: view.layer)
+    let transaction = Transaction()
+    transaction.add(plan: animation, to: view.layer)
 
-    let scheduler = MDMScheduler()
+    let scheduler = Scheduler()
     scheduler.commit(transaction)
 
-    let delegate = SchedulerDelegate()
+    let delegate = TestableSchedulerDelegate()
     delegate.didIdleExpectation = expectation(description: "Did idle")
     scheduler.delegate = delegate
 
