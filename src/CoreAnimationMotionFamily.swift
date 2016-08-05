@@ -56,7 +56,7 @@ extension CAAnimation: Plan {
     CATransaction.commit()
   }
 
-  func setDelegatedPerformanceWillStart(_ willStart: DelegatedPerformanceTokenReturnBlock, didEnd: DelegatedPerformanceTokenArgBlock) {
+  func setDelegatedPerformance(willStart: DelegatedPerformanceTokenReturnBlock, didEnd: DelegatedPerformanceTokenArgBlock) {
     self.willStart = willStart
     self.didEnd = didEnd
   }

@@ -32,7 +32,7 @@ class CoreAnimationTests: XCTestCase {
     transaction.add(plan: animation, to: view)
 
     let scheduler = Scheduler()
-    scheduler.commit(transaction)
+    scheduler.commit(transaction: transaction)
 
     let delegate = TestableSchedulerDelegate()
     delegate.didIdleExpectation = expectation(description: "Did idle")
@@ -55,7 +55,7 @@ class CoreAnimationTests: XCTestCase {
     transaction.add(plan: animation, to: view.layer)
 
     let scheduler = Scheduler()
-    scheduler.commit(transaction)
+    scheduler.commit(transaction: transaction)
 
     let delegate = TestableSchedulerDelegate()
     delegate.didIdleExpectation = expectation(description: "Did idle")

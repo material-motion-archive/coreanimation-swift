@@ -1,7 +1,7 @@
 PODS:
   - MaterialMotionCoreAnimationFamily (1.0.0):
     - MaterialMotionRuntime
-  - MaterialMotionRuntime (1.0.0)
+  - MaterialMotionRuntime (2.0.1)
 
 DEPENDENCIES:
   - MaterialMotionCoreAnimationFamily (from `./`)
@@ -16,12 +16,12 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   MaterialMotionRuntime:
-    :commit: c02df1600b820b14a4f1faf9a5941c14a05adf4f
+    :commit: 2a43053b22493659cec64c2a49d5d52212ab484f
     :git: git@github.com:material-motion/material-motion-runtime-objc.git
 
 SPEC CHECKSUMS:
   MaterialMotionCoreAnimationFamily: 363b6b0343e46950478ab5487a38445cf966de57
-  MaterialMotionRuntime: c1baf57914298b91634d2089d09341e6cd9f65a1
+  MaterialMotionRuntime: 142f75ce2cf2682458aa9631541b8644b653ef34
 
 PODFILE CHECKSUM: 8826d7b38972cc6eee2699702b8c1c5cc4ad1c21
 
