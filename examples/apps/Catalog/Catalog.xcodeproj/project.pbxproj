@@ -14,6 +14,7 @@
 		66E620301D47D2340021B138 /* SchedulerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E6202F1D47D2340021B138 /* SchedulerDelegate.swift */; };
 		66FB71CE1FA2B5DC89A7883C /* Pods_MaterialMotionCoreAnimationFamily_UnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 443B77A9B48B8E8395819E7E /* Pods_MaterialMotionCoreAnimationFamily_UnitTests.framework */; };
 		C0BC54AF6152BCDAA9566B30 /* Pods_MaterialMotionCoreAnimationFamily_Catalog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B8148CD2D7965DD1699653 /* Pods_MaterialMotionCoreAnimationFamily_Catalog.framework */; };
+		D05136411D5122C800438C0F /* PopupMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05136401D5122C800438C0F /* PopupMenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		66E6202F1D47D2340021B138 /* SchedulerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulerDelegate.swift; sourceTree = "<group>"; };
 		B2AEAB79F993F15CB0185C24 /* Pods-MaterialMotionCoreAnimationFamily-UnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MaterialMotionCoreAnimationFamily-UnitTests.debug.xcconfig"; path = "../../../Pods/Target Support Files/Pods-MaterialMotionCoreAnimationFamily-UnitTests/Pods-MaterialMotionCoreAnimationFamily-UnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CCEEB5C473CA229BD2A79788 /* Pods-MaterialMotionCoreAnimationFamily-Catalog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MaterialMotionCoreAnimationFamily-Catalog.release.xcconfig"; path = "../../../Pods/Target Support Files/Pods-MaterialMotionCoreAnimationFamily-Catalog/Pods-MaterialMotionCoreAnimationFamily-Catalog.release.xcconfig"; sourceTree = "<group>"; };
+		D05136401D5122C800438C0F /* PopupMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopupMenuViewController.swift; path = Catalog/PopupMenuViewController.swift; sourceTree = "<group>"; };
 		D0B8148CD2D7965DD1699653 /* Pods_MaterialMotionCoreAnimationFamily_Catalog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MaterialMotionCoreAnimationFamily_Catalog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2DA13259D089A0F11B2ECB8 /* Pods-MaterialMotionCoreAnimationFamily-Catalog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MaterialMotionCoreAnimationFamily-Catalog.debug.xcconfig"; path = "../../../Pods/Target Support Files/Pods-MaterialMotionCoreAnimationFamily-Catalog/Pods-MaterialMotionCoreAnimationFamily-Catalog.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				666FAA831D384A6B000363DA /* AppDelegate.swift */,
+				D05136401D5122C800438C0F /* PopupMenuViewController.swift */,
 			);
 			name = catalog;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D05136411D5122C800438C0F /* PopupMenuViewController.swift in Sources */,
 				666FAA841D384A6B000363DA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
