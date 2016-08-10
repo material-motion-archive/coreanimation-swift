@@ -38,14 +38,14 @@ class PopupMenuViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    self.view.backgroundColor = UIColor.white()
+    self.view.backgroundColor = UIColor.white
 
     let width = self.view.frame.width
     let height = self.view.frame.height
     mainBtn = UIView(frame: CGRect(x: width / 2 - 20, y: height - 70, width: 40, height: 40))
-    mainBtn?.backgroundColor = .orange()
+    mainBtn?.backgroundColor = .orange
     mainBtn?.layer.cornerRadius = 20
-    mainBtn?.layer.shadowColor = UIColor.black().cgColor
+    mainBtn?.layer.shadowColor = UIColor.black.cgColor
     mainBtn?.layer.shadowOffset = CGSize(width: 0, height: 2)
     mainBtn?.layer.shadowOpacity = 0.3
     mainBtn?.layer.shadowRadius = 5
@@ -57,7 +57,7 @@ class PopupMenuViewController: UIViewController {
     additionalBtn1?.bounds = mainBtn!.frame
     additionalBtn1?.position = mainBtn!.layer.position
     additionalBtn1?.cornerRadius = 20
-    additionalBtn1?.backgroundColor = UIColor.blue().cgColor
+    additionalBtn1?.backgroundColor = UIColor.blue.cgColor
     additionalBtn1?.opacity = 0
     self.view.layer.insertSublayer(additionalBtn1!, below: mainBtn!.layer)
 
@@ -65,7 +65,7 @@ class PopupMenuViewController: UIViewController {
     additionalBtn2?.bounds = mainBtn!.frame
     additionalBtn2?.position = mainBtn!.layer.position
     additionalBtn2?.cornerRadius = 20
-    additionalBtn2?.backgroundColor = UIColor.blue().cgColor
+    additionalBtn2?.backgroundColor = UIColor.blue.cgColor
     additionalBtn2?.opacity = 0
     self.view.layer.insertSublayer(additionalBtn2!, below: mainBtn!.layer)
 
@@ -73,7 +73,7 @@ class PopupMenuViewController: UIViewController {
     additionalBtn3?.bounds = mainBtn!.frame
     additionalBtn3?.position = mainBtn!.layer.position
     additionalBtn3?.cornerRadius = 20
-    additionalBtn3?.backgroundColor = UIColor.blue().cgColor
+    additionalBtn3?.backgroundColor = UIColor.blue.cgColor
     additionalBtn3?.opacity = 0
     self.view.layer.insertSublayer(additionalBtn3!, below: mainBtn!.layer)
   }
@@ -111,8 +111,8 @@ class PopupMenuViewController: UIViewController {
     // Main button grey
     let greyButton = CABasicAnimation(keyPath: "backgroundColor")
 
-    let initialColor: AnyObject = UIColor.orange().cgColor
-    let endColor: AnyObject = UIColor.lightGray().cgColor
+    let initialColor: AnyObject = UIColor.orange.cgColor
+    let endColor: AnyObject = UIColor.lightGray.cgColor
 
     greyButton.fromValue = buttonsShowing ? endColor : initialColor
     greyButton.toValue = buttonsShowing ? initialColor : endColor
@@ -139,7 +139,7 @@ class PopupMenuViewController: UIViewController {
     transaction.add(plan: btn3Move, to: additionalBtn3!)
     transaction.add(plan: btn3Fade, to: additionalBtn3!)
 
-    scheduler.commit(transaction)
+    scheduler.commit(transaction: transaction)
     buttonsShowing = !buttonsShowing
   }
 
