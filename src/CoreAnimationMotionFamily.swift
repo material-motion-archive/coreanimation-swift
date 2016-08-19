@@ -34,7 +34,7 @@ extension CAAnimation: Plan {
   var willStart: DelegatedPerformanceTokenReturnBlock!
   var didEnd: DelegatedPerformanceTokenArgBlock!
 
-  required init(target: AnyObject) {
+  required init(target: Any) {
     if let view = target as? UIView {
       self.target = view.layer
     } else {
