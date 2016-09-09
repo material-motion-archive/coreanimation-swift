@@ -38,7 +38,7 @@ class PopupMenuViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    self.view.backgroundColor = UIColor.white
+    self.view.backgroundColor = .white
 
     let width = self.view.frame.width
     let height = self.view.frame.height
