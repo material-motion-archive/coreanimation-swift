@@ -16,13 +16,13 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   MaterialMotionRuntime:
-    :commit: e002e18e8878f67ca5ae17ee0ce8a05357254bc4
+    :commit: f31cbc6d9b78576e85410b82942a25a53a4e5f6e
     :git: https://github.com/material-motion/material-motion-runtime-objc.git
 
 SPEC CHECKSUMS:
   MaterialMotionCoreAnimationFamily: 363b6b0343e46950478ab5487a38445cf966de57
   MaterialMotionRuntime: 142f75ce2cf2682458aa9631541b8644b653ef34
 
-PODFILE CHECKSUM: cbc66909b4f6fa2b61d6bb4ec5bd4ee73becdf43
+PODFILE CHECKSUM: 94030ee238c2efeb443b51e02663689c8f840c4f
 
 COCOAPODS: 1.0.1
