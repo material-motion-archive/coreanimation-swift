@@ -29,11 +29,8 @@ extension CAAnimation: Plan {
 }
 
 /** A light-weight Core Animation Material Motion performer. */
-@objc class CoreAnimationPerformer: NSObject, PlanPerforming, DelegatedPerforming {
+class CoreAnimationPerformer: NSObject, PlanPerforming, ContinuousPerforming {
   let target: CALayer
-  var willStart: DelegatedPerformanceTokenReturnBlock!
-  var didEnd: DelegatedPerformanceTokenArgBlock!
-
   required init(target: Any) {
     if let view = target as? UIView {
       self.target = view.layer
@@ -43,21 +40,22 @@ extension CAAnimation: Plan {
   }
 
   func add(plan: Plan) {
+    let animation = plan as! CAAnimation
+
     CATransaction.begin()
 
-    guard let token = self.willStart() else { return }
+    guard let token = tokenGenerator.generate() else { return }
     CATransaction.setCompletionBlock {
-      self.didEnd(token)
+      token.terminate()
     }
 
-    let animation = plan as! CAAnimation
-    self.target.add(animation, forKey: nil)
+    target.add(animation, forKey: nil)
 
     CATransaction.commit()
   }
 
-  func setDelegatedPerformance(willStart: @escaping DelegatedPerformanceTokenReturnBlock, didEnd: @escaping DelegatedPerformanceTokenArgBlock) {
-    self.willStart = willStart
-    self.didEnd = didEnd
+  var tokenGenerator: IsActiveTokenGenerating!
+  func set(isActiveTokenGenerator: IsActiveTokenGenerating) {
+    tokenGenerator = isActiveTokenGenerator
   }
 }
