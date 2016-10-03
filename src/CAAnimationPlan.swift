@@ -27,35 +27,3 @@ extension CAAnimation: Plan {
     return CoreAnimationPerformer.self
   }
 }
-
-/** A light-weight Core Animation Material Motion performer. */
-class CoreAnimationPerformer: NSObject, PlanPerforming, ContinuousPerforming {
-  let target: CALayer
-  required init(target: Any) {
-    if let view = target as? UIView {
-      self.target = view.layer
-    } else {
-      self.target = target as! CALayer
-    }
-  }
-
-  func add(plan: Plan) {
-    let animation = plan as! CAAnimation
-
-    CATransaction.begin()
-
-    guard let token = tokenGenerator.generate() else { return }
-    CATransaction.setCompletionBlock {
-      token.terminate()
-    }
-
-    target.add(animation, forKey: nil)
-
-    CATransaction.commit()
-  }
-
-  var tokenGenerator: IsActiveTokenGenerating!
-  func set(isActiveTokenGenerator: IsActiveTokenGenerating) {
-    tokenGenerator = isActiveTokenGenerator
-  }
-}
