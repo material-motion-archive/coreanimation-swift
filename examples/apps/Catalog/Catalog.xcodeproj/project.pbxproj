@@ -42,7 +42,7 @@
 		66E6202F1D47D2340021B138 /* SchedulerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulerDelegate.swift; sourceTree = "<group>"; };
 		B2AEAB79F993F15CB0185C24 /* Pods-MaterialMotionCoreAnimationFamily-UnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MaterialMotionCoreAnimationFamily-UnitTests.debug.xcconfig"; path = "../../../Pods/Target Support Files/Pods-MaterialMotionCoreAnimationFamily-UnitTests/Pods-MaterialMotionCoreAnimationFamily-UnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CCEEB5C473CA229BD2A79788 /* Pods-MaterialMotionCoreAnimationFamily-Catalog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MaterialMotionCoreAnimationFamily-Catalog.release.xcconfig"; path = "../../../Pods/Target Support Files/Pods-MaterialMotionCoreAnimationFamily-Catalog/Pods-MaterialMotionCoreAnimationFamily-Catalog.release.xcconfig"; sourceTree = "<group>"; };
-		D05136401D5122C800438C0F /* PopupMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopupMenuViewController.swift; path = Catalog/PopupMenuViewController.swift; sourceTree = "<group>"; };
+		D05136401D5122C800438C0F /* PopupMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupMenuViewController.swift; sourceTree = "<group>"; };
 		D0B8148CD2D7965DD1699653 /* Pods_MaterialMotionCoreAnimationFamily_Catalog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MaterialMotionCoreAnimationFamily_Catalog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2DA13259D089A0F11B2ECB8 /* Pods-MaterialMotionCoreAnimationFamily-Catalog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MaterialMotionCoreAnimationFamily-Catalog.debug.xcconfig"; path = "../../../Pods/Target Support Files/Pods-MaterialMotionCoreAnimationFamily-Catalog/Pods-MaterialMotionCoreAnimationFamily-Catalog.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,6 +123,7 @@
 		666FAAA31D384B13000363DA /* examples */ = {
 			isa = PBXGroup;
 			children = (
+				D05136401D5122C800438C0F /* PopupMenuViewController.swift */,
 			);
 			name = examples;
 			path = ../..;
@@ -151,7 +152,6 @@
 			isa = PBXGroup;
 			children = (
 				666FAA831D384A6B000363DA /* AppDelegate.swift */,
-				D05136401D5122C800438C0F /* PopupMenuViewController.swift */,
 			);
 			name = catalog;
 			sourceTree = "<group>";

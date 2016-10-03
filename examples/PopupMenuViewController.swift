@@ -171,4 +171,7 @@ class PopupMenuViewController: UIViewController {
     return fade
   }
 
+  class func catalogBreadcrumbs() -> [String] {
+    return ["Popup menu"]
+  }
 }
