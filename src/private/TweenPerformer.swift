@@ -17,7 +17,7 @@
 import UIKit
 import MaterialMotionRuntime
 
-class TweenPerformer: NSObject, PlanPerforming, ComposablePerforming {
+class TweenPerformer: NSObject, PlanPerforming, ContinuousPerforming {
   let target: CALayer
   required init(target: Any) {
     if let view = target as? UIView {
@@ -37,13 +37,20 @@ class TweenPerformer: NSObject, PlanPerforming, ComposablePerforming {
     animation.duration = tween.duration
     animation.beginTime = tween.delay
 
-    let transaction = Transaction()
-    transaction.add(plan: animation, to: target)
-    emitter.emit(transaction: transaction)
+    CATransaction.begin()
+
+    guard let token = tokenGenerator.generate() else { return }
+    CATransaction.setCompletionBlock {
+      token.terminate()
+    }
+
+    target.add(animation, forKey: nil)
+
+    CATransaction.commit()
   }
 
-  var emitter: TransactionEmitting!
-  func set(transactionEmitter: TransactionEmitting) {
-    emitter = transactionEmitter
+  var tokenGenerator: IsActiveTokenGenerating!
+  func set(isActiveTokenGenerator: IsActiveTokenGenerating) {
+    tokenGenerator = isActiveTokenGenerator
   }
 }

@@ -87,36 +87,33 @@ class PopupMenuViewController: UIViewController {
     let bounceTimingFunction = CAMediaTimingFunction(controlPoints: 0.5, 1.6, 1, 1)
 
     // Make main button smaller
-    let smallerBtn = CABasicAnimation(keyPath: "transform")
+    let smallerBtn = Tween("transform", duration: animDuration)
 
     let initialTransform = CATransform3DIdentity
     let endTransform = CATransform3DMakeScale(0.6, 0.6, 1.0)
 
-    smallerBtn.fromValue = NSValue(caTransform3D: buttonsShowing ? endTransform : initialTransform)
-    smallerBtn.toValue = NSValue(caTransform3D: buttonsShowing ? initialTransform : endTransform)
-    smallerBtn.duration = animDuration
+    smallerBtn.from = NSValue(caTransform3D: buttonsShowing ? endTransform : initialTransform)
+    smallerBtn.to = NSValue(caTransform3D: buttonsShowing ? initialTransform : endTransform)
     smallerBtn.timingFunction = bounceTimingFunction
 
     // Main button shadow smaller
-    let smallerShadow = CABasicAnimation(keyPath: "shadowRadius")
+    let smallerShadow = Tween("shadowRadius", duration: animDuration)
 
     let initialRadius = 5
     let endRadius = 2
 
-    smallerShadow.fromValue = NSNumber(value: buttonsShowing ? endRadius : initialRadius)
-    smallerShadow.toValue = NSNumber(value: buttonsShowing ? initialRadius : endRadius)
-    smallerShadow.duration = animDuration
+    smallerShadow.from = NSNumber(value: buttonsShowing ? endRadius : initialRadius)
+    smallerShadow.to = NSNumber(value: buttonsShowing ? initialRadius : endRadius)
     smallerShadow.timingFunction = bounceTimingFunction
 
     // Main button grey
-    let greyButton = CABasicAnimation(keyPath: "backgroundColor")
+    let greyButton = Tween("backgroundColor", duration: animDuration)
 
     let initialColor: AnyObject = UIColor.orange.cgColor
     let endColor: AnyObject = UIColor.lightGray.cgColor
 
-    greyButton.fromValue = buttonsShowing ? endColor : initialColor
-    greyButton.toValue = buttonsShowing ? initialColor : endColor
-    greyButton.duration = animDuration
+    greyButton.from = buttonsShowing ? endColor : initialColor
+    greyButton.to = buttonsShowing ? initialColor : endColor
 
     // Move and fade buttons
     let btn1Move = generateBtnMove(btn: additionalBtn1!, distance: distFromMainButton, angle: angle1, timing: bounceTimingFunction)
@@ -143,30 +140,29 @@ class PopupMenuViewController: UIViewController {
     buttonsShowing = !buttonsShowing
   }
 
-  func generateBtnMove(btn: CALayer, distance: CGFloat, angle: Float, timing: CAMediaTimingFunction) -> CABasicAnimation {
-    let move = CABasicAnimation(keyPath: "position")
+  func generateBtnMove(btn: CALayer, distance: CGFloat, angle: Float, timing: CAMediaTimingFunction) -> Tween {
+    let move = Tween("position", duration: animDuration)
     let initialPos = mainBtn!.layer.position
 
     let x = initialPos.x - CGFloat(sinf(angle)) * distance
     let y = initialPos.y - CGFloat(cosf(angle)) * distance
     let endPos = CGPoint(x: x, y: y)
 
-    move.fromValue = NSValue(cgPoint: buttonsShowing ? endPos : initialPos)
-    move.toValue = NSValue(cgPoint: buttonsShowing ? initialPos : endPos)
-    move.duration = animDuration
+    move.from = NSValue(cgPoint: buttonsShowing ? endPos : initialPos)
+    move.to = NSValue(cgPoint: buttonsShowing ? initialPos : endPos)
     move.timingFunction = timing
 
     return move
   }
 
-  func generateBtnFade(btn: CALayer) -> CABasicAnimation {
-    let fade = CABasicAnimation(keyPath: "opacity")
+  func generateBtnFade(btn: CALayer) -> Tween {
+    let fade = Tween("opacity", duration: animDuration)
 
-    let initialOpacity = NSNumber.init(value: 0.0)
-    let endOpacity = NSNumber.init(value: 1.0)
+    let initialOpacity = NSNumber(value: 0.0)
+    let endOpacity = NSNumber(value: 1.0)
 
-    fade.fromValue = buttonsShowing ? endOpacity : initialOpacity
-    fade.toValue = buttonsShowing ? initialOpacity : endOpacity
+    fade.from = buttonsShowing ? endOpacity : initialOpacity
+    fade.to = buttonsShowing ? initialOpacity : endOpacity
 
     return fade
   }
