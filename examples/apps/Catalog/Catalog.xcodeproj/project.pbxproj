@@ -10,6 +10,8 @@
 		666FAA841D384A6B000363DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666FAA831D384A6B000363DA /* AppDelegate.swift */; };
 		666FAA8B1D384A6B000363DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 666FAA8A1D384A6B000363DA /* Assets.xcassets */; };
 		666FAA8E1D384A6B000363DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 666FAA8C1D384A6B000363DA /* LaunchScreen.storyboard */; };
+		66A277841DA2E9DD00AFA57B /* TweenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A277831DA2E9DD00AFA57B /* TweenTests.swift */; };
+		66A2778D1DA6CDE800AFA57B /* ObjectiveCAPITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A2778C1DA6CDE800AFA57B /* ObjectiveCAPITests.m */; };
 		66E6202E1D46B4250021B138 /* CoreAnimationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E6202D1D46B4250021B138 /* CoreAnimationTests.swift */; };
 		66E620301D47D2340021B138 /* SchedulerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E6202F1D47D2340021B138 /* SchedulerDelegate.swift */; };
 		66FB71CE1FA2B5DC89A7883C /* Pods_MaterialMotionCoreAnimationFamily_UnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 443B77A9B48B8E8395819E7E /* Pods_MaterialMotionCoreAnimationFamily_UnitTests.framework */; };
@@ -38,6 +40,8 @@
 		666FAA941D384A6B000363DA /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		666FAA9A1D384A6B000363DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../UnitTests/Info.plist; sourceTree = "<group>"; };
 		666FAAA71D384D51000363DA /* UnitTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UnitTests-Bridging-Header.h"; path = "../UnitTests/UnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		66A277831DA2E9DD00AFA57B /* TweenTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweenTests.swift; sourceTree = "<group>"; };
+		66A2778C1DA6CDE800AFA57B /* ObjectiveCAPITests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectiveCAPITests.m; sourceTree = "<group>"; };
 		66E6202D1D46B4250021B138 /* CoreAnimationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreAnimationTests.swift; sourceTree = "<group>"; };
 		66E6202F1D47D2340021B138 /* SchedulerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulerDelegate.swift; sourceTree = "<group>"; };
 		B2AEAB79F993F15CB0185C24 /* Pods-MaterialMotionCoreAnimationFamily-UnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MaterialMotionCoreAnimationFamily-UnitTests.debug.xcconfig"; path = "../../../Pods/Target Support Files/Pods-MaterialMotionCoreAnimationFamily-UnitTests/Pods-MaterialMotionCoreAnimationFamily-UnitTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -115,6 +119,8 @@
 			children = (
 				66E6202D1D46B4250021B138 /* CoreAnimationTests.swift */,
 				66E6202F1D47D2340021B138 /* SchedulerDelegate.swift */,
+				66A277831DA2E9DD00AFA57B /* TweenTests.swift */,
+				66A2778C1DA6CDE800AFA57B /* ObjectiveCAPITests.m */,
 			);
 			name = tests;
 			path = ../../../tests/unit;
@@ -376,6 +382,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				66E620301D47D2340021B138 /* SchedulerDelegate.swift in Sources */,
+				66A277841DA2E9DD00AFA57B /* TweenTests.swift in Sources */,
+				66A2778D1DA6CDE800AFA57B /* ObjectiveCAPITests.m in Sources */,
 				66E6202E1D46B4250021B138 /* CoreAnimationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
