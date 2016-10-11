@@ -14,19 +14,10 @@
  limitations under the License.
  */
 
-import XCTest
-import Foundation
-import MaterialMotionRuntime
+// MARK: Catalog by convention
 
-class TestableSchedulerDelegate: NSObject, SchedulerDelegate {
-  var activityStateDidChange = false
-  var didIdleExpectation: XCTestExpectation?
-
-  func schedulerActivityStateDidChange(_ scheduler: Scheduler) {
-    self.activityStateDidChange = true
-
-    if scheduler.activityState == .idle {
-      didIdleExpectation?.fulfill()
-    }
+extension PopupMenuViewController {
+  class func catalogBreadcrumbs() -> [String] {
+    return ["Popup menu"]
   }
 }
