@@ -126,15 +126,19 @@ class PopupMenuViewController: UIViewController {
     let btn3Fade = generateBtnFade(btn: additionalBtn3!)
 
     let transaction = Transaction()
-    transaction.add(plan: smallerBtn, to: mainBtn!)
-    transaction.add(plan: greyButton, to: mainBtn!)
-    transaction.add(plan: smallerShadow, to: mainBtn!)
-    transaction.add(plan: btn1Move, to: additionalBtn1!)
-    transaction.add(plan: btn1Fade, to: additionalBtn1!)
-    transaction.add(plan: btn2Move, to: additionalBtn2!)
-    transaction.add(plan: btn2Fade, to: additionalBtn2!)
-    transaction.add(plan: btn3Move, to: additionalBtn3!)
-    transaction.add(plan: btn3Fade, to: additionalBtn3!)
+    func addAndCommit(tween: Tween, to target: CALayer) {
+      transaction.add(plan: tween, to: target)
+      tween.commitToValue(to: target)
+    }
+    addAndCommit(tween: smallerBtn, to: mainBtn!.layer)
+    addAndCommit(tween: greyButton, to: mainBtn!.layer)
+    addAndCommit(tween: smallerShadow, to: mainBtn!.layer)
+    addAndCommit(tween: btn1Move, to: additionalBtn1!)
+    addAndCommit(tween: btn1Fade, to: additionalBtn1!)
+    addAndCommit(tween: btn2Move, to: additionalBtn2!)
+    addAndCommit(tween: btn2Fade, to: additionalBtn2!)
+    addAndCommit(tween: btn3Move, to: additionalBtn3!)
+    addAndCommit(tween: btn3Fade, to: additionalBtn3!)
 
     scheduler.commit(transaction: transaction)
     buttonsShowing = !buttonsShowing
