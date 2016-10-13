@@ -125,9 +125,8 @@ class PopupMenuViewController: UIViewController {
     let btn3Move = generateBtnMove(btn: additionalBtn3!, distance: distFromMainButton, angle: angle3, timing: bounceTimingFunction)
     let btn3Fade = generateBtnFade(btn: additionalBtn3!)
 
-    let transaction = Transaction()
     func addAndCommit(tween: Tween, to target: CALayer) {
-      transaction.add(plan: tween, to: target)
+      scheduler.addPlan(tween, to: target)
       tween.commitToValue(to: target)
     }
     addAndCommit(tween: smallerBtn, to: mainBtn!.layer)
@@ -140,7 +139,6 @@ class PopupMenuViewController: UIViewController {
     addAndCommit(tween: btn3Move, to: additionalBtn3!)
     addAndCommit(tween: btn3Fade, to: additionalBtn3!)
 
-    scheduler.commit(transaction: transaction)
     buttonsShowing = !buttonsShowing
   }
 

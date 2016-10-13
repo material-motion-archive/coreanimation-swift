@@ -30,9 +30,7 @@ class TweenTests: XCTestCase {
     delegate.didIdleExpectation = expectation(description: "Did idle")
     scheduler.delegate = delegate
 
-    let transaction = Transaction()
-    transaction.add(plan: animation, to: view)
-    scheduler.commit(transaction: transaction)
+    scheduler.addPlan(animation, to: view)
 
     waitForExpectations(timeout: 0.3)
 

@@ -27,7 +27,7 @@ class TweenPerformer: NSObject, PlanPerforming, ContinuousPerforming {
     }
   }
 
-  func add(plan: Plan) {
+  func addPlan(_ plan: Plan) {
     let tween = plan as! Tween
 
     let animation = CABasicAnimation(keyPath: tween.keyPath)
