@@ -1,0 +1,12 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/featherless/workbench/odeon/material-motion-family-coreanimation-swift/src/Tween.swift",
+      "line": 45,
+      "symbol": "Tween.init(_:duration:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/featherless/workbench/odeon/material-motion-family-coreanimation-swift"
+}

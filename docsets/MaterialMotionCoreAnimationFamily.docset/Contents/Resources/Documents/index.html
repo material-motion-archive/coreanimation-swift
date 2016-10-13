@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MaterialMotionCoreAnimationFamily  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a title="MaterialMotionCoreAnimationFamily  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">MaterialMotionCoreAnimationFamily Docs</a> (92% documented)</p>
+        <p class="header-right"><a href="https://github.com/material-motion/material-motion-family-coreanimation-swift"><img src="img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">MaterialMotionCoreAnimationFamily Reference</a>
+        <img id="carat" src="img/carat.png" />
+        MaterialMotionCoreAnimationFamily  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/Tween.html">Tween</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <a href='#core-animation-material-motion-family' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='core-animation-material-motion-family'>Core Animation Material Motion Family</h1>
+
+<p><a href="https://travis-ci.org/material-motion/material-motion-family-coreanimation-swift"><img src="https://travis-ci.org/material-motion/material-motion-family-coreanimation-swift.svg?branch=develop" alt="Build Status"></a>
+<a href="https://codecov.io/gh/material-motion/material-motion-family-coreanimation-swift"><img src="https://codecov.io/gh/material-motion/material-motion-family-coreanimation-swift/branch/develop/graph/badge.svg" alt="codecov"></a></p>
+
+<p>The Core Animation Material Motion family provides a bridge between
+<a href="https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/CoreAnimation_guide/Introduction/Introduction.html">Core Animation</a> and the
+<a href="https://github.com/material-motion/material-motion-runtime-objc">Material Motion runtime</a>.</p>
+<a href='#supported-languages' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='supported-languages'>Supported languages</h2>
+
+<ul>
+<li>Swift 3</li>
+<li>Objective-C</li>
+</ul>
+<a href='#features' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='features'>Features</h2>
+
+<p><code>Tween</code> uses Core Animation&rsquo;s CABasicAnimation to animate a CALayer property along an easing curve.</p>
+
+<p>Use a Tween like you would use a CABasicAnimation instance: provide a key path, duration, and one or
+both of the from/to value.</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">tweenBackgroundColor</span> <span class="o">=</span> <span class="kt">Tween</span><span class="p">(</span><span class="s">"backgroundColor"</span><span class="p">,</span> <span class="nv">duration</span><span class="p">:</span> <span class="n">animDuration</span><span class="p">)</span>
+<span class="n">tweenBackgroundColor</span><span class="o">.</span><span class="n">from</span> <span class="o">=</span> <span class="kt">UIColor</span><span class="o">.</span><span class="n">orange</span><span class="o">.</span><span class="n">cgColor</span>
+<span class="n">tweenBackgroundColor</span><span class="o">.</span><span class="n">to</span> <span class="o">=</span> <span class="kt">UIColor</span><span class="o">.</span><span class="n">lightGray</span><span class="o">.</span><span class="n">cgColor</span>
+<span class="n">scheduler</span><span class="o">.</span><span class="nf">addPlan</span><span class="p">(</span><span class="n">tweenBackgroundColor</span><span class="p">,</span> <span class="nv">to</span><span class="p">:</span> <span class="n">myView</span><span class="p">)</span>
+</code></pre>
+
+<p>Tween&rsquo;s properties map to the following Core Animation properties:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: center">Tween</th>
+<th style="text-align: center">Core Animation</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center">delay</td>
+<td style="text-align: center">delay</td>
+</tr>
+<tr>
+<td style="text-align: center">duration</td>
+<td style="text-align: center">duration</td>
+</tr>
+<tr>
+<td style="text-align: center">from</td>
+<td style="text-align: center">fromValue</td>
+</tr>
+<tr>
+<td style="text-align: center">keyPath</td>
+<td style="text-align: center">keyPath</td>
+</tr>
+<tr>
+<td style="text-align: center">to</td>
+<td style="text-align: center">toValue</td>
+</tr>
+<tr>
+<td style="text-align: center">timingFunction</td>
+<td style="text-align: center">timingFunction</td>
+</tr>
+</tbody></table>
+
+<p>No other Core Animation properties are presently supported. View our filed
+<a href="https://github.com/material-motion/material-motion-family-coreanimation-swift/labels/Feature%20request">feature requests</a>
+to track progress on supporting additional functionality.</p>
+<a href='#installation' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='installation'>Installation</h2>
+<a href='#installation-with-cocoapods' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='installation-with-cocoapods'>Installation with CocoaPods</h3>
+
+<blockquote>
+<p>CocoaPods is a dependency manager for Objective-C and Swift libraries. CocoaPods automates the
+process of using third-party libraries in your projects. See
+<a href="https://guides.cocoapods.org/using/getting-started.html">the Getting Started guide</a> for more
+information. You can install it with the following command:</p>
+<pre class="highlight plaintext"><code>gem install cocoapods
+</code></pre>
+</blockquote>
+
+<p>Add <code>MaterialMotionCoreAnimationFamily</code> to your <code>Podfile</code>:</p>
+<pre class="highlight plaintext"><code>pod 'MaterialMotionCoreAnimationFamily'
+</code></pre>
+
+<p>Then run the following command:</p>
+<pre class="highlight plaintext"><code>pod install
+</code></pre>
+<a href='#usage' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='usage'>Usage</h3>
+
+<p>Import the framework:</p>
+<pre class="highlight plaintext"><code>@import MaterialMotionCoreAnimationFamily;
+</code></pre>
+
+<p>You will now have access to all of the APIs.</p>
+<a href='#example-apps-unit-tests' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='example-apps-unit-tests'>Example apps/unit tests</h2>
+
+<p>Check out a local copy of the repo to access the Catalog application by running the following
+commands:</p>
+<pre class="highlight plaintext"><code>git clone https://github.com/material-motion/material-motion-family-coreanimation-swift.git
+cd material-motion-family-coreanimation-swift
+pod install
+open MaterialMotionCoreAnimationFamily.xcworkspace
+</code></pre>
+<a href='#guides' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='guides'>Guides</h2>
+
+<ol>
+<li><a href="#how-to-animate-a-property-with-a-tween-plan">How to animate a property with a Tween plan</a></li>
+<li><a href="#how-to-commit-tween-values-to-a-layer">How to commit Tween values to a layer</a></li>
+</ol>
+<a href='#how-to-animate-a-property-with-a-tween-plan' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='how-to-animate-a-property-with-a-tween-plan'>How to animate a property with a Tween plan</h3>
+
+<p>Code snippets:</p>
+
+<p><strong><em>In Objective-C:</em></strong></p>
+<pre class="highlight objective_c"><code><span class="n">MDMTween</span> <span class="o">*</span><span class="n">tween</span> <span class="o">=</span> <span class="p">[[</span><span class="n">MDMTween</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithKeyPath</span><span class="p">:</span><span class="s">@"&lt;#key path#&gt;"</span> <span class="nf">duration</span><span class="p">:</span><span class="o">&lt;</span><span class="err">#</span><span class="n">duration</span><span class="err">#</span><span class="o">&gt;</span><span class="p">];</span>
+<span class="n">tween</span><span class="p">.</span><span class="n">from</span> <span class="o">=</span> <span class="o">&lt;</span><span class="err">#</span><span class="n">from</span> <span class="n">value</span><span class="err">#</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="n">tween</span><span class="p">.</span><span class="n">to</span> <span class="o">=</span> <span class="o">&lt;</span><span class="err">#</span><span class="n">to</span> <span class="n">value</span><span class="err">#</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">[</span><span class="n">scheduler</span> <span class="nf">addPlan</span><span class="p">:</span><span class="n">tween</span> <span class="nf">to</span><span class="p">:</span><span class="o">&lt;</span><span class="err">#</span><span class="n">Object</span><span class="err">#</span><span class="o">&gt;</span><span class="p">];</span>
+</code></pre>
+
+<p><strong><em>In Swift:</em></strong></p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">tween</span> <span class="o">=</span> <span class="kt">Tween</span><span class="p">(</span><span class="o">&lt;</span><span class="err">#</span><span class="n">key</span> <span class="n">path</span><span class="err">#</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">duration</span><span class="p">:</span> <span class="o">&lt;</span><span class="err">#</span><span class="n">duration</span><span class="err">#</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">tween</span><span class="o">.</span><span class="n">from</span> <span class="o">=</span> <span class="o">&lt;</span><span class="err">#</span><span class="n">from</span> <span class="n">value</span><span class="err">#</span><span class="o">&gt;</span>
+<span class="n">tween</span><span class="o">.</span><span class="n">to</span> <span class="o">=</span> <span class="o">&lt;</span><span class="err">#</span><span class="n">to</span> <span class="n">value</span><span class="err">#</span><span class="o">&gt;</span>
+<span class="n">scheduler</span><span class="o">.</span><span class="nf">addPlan</span><span class="p">(</span><span class="n">tween</span><span class="p">,</span> <span class="nv">to</span><span class="p">:</span> <span class="o">&lt;</span><span class="err">#</span><span class="kt">Object</span><span class="err">#</span><span class="o">&gt;</span><span class="p">)</span>
+</code></pre>
+<a href='#how-to-commit-tween-values-to-a-layer' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='how-to-commit-tween-values-to-a-layer'>How to commit Tween values to a layer</h3>
+
+<p>We provide two helper APIs for committing the to/from value of a Tween plan to a given CALayer
+instance. This is most often used to commit the <code>to</code> value of the Tween to the layer so that the
+property does not appear to <q>snap back</q> upon completion of the animation.</p>
+
+<p>Code snippets:</p>
+
+<p><strong><em>In Objective-C:</em></strong></p>
+<pre class="highlight objective_c"><code><span class="p">[</span><span class="n">tween</span> <span class="nf">commitToValueTo</span><span class="p">:</span><span class="o">&lt;</span><span class="err">#</span><span class="n">CALayer</span><span class="err">#</span><span class="o">&gt;</span><span class="p">]</span>
+</code></pre>
+
+<p><strong><em>In Swift:</em></strong></p>
+<pre class="highlight swift"><code><span class="n">tween</span><span class="o">.</span><span class="nf">commitToValue</span><span class="p">(</span><span class="nv">to</span><span class="p">:</span> <span class="o">&lt;</span><span class="err">#</span><span class="kt">CALayer</span><span class="err">#</span><span class="o">&gt;</span><span class="p">)</span>
+</code></pre>
+<a href='#contributing' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='contributing'>Contributing</h2>
+
+<p>We welcome contributions!</p>
+
+<p>Check out our <a href="https://github.com/material-motion/material-motion-family-coreanimation-swift/milestones">upcoming milestones</a>.</p>
+
+<p>Learn more about <a href="https://material-motion.gitbooks.io/material-motion-team/content/">our team</a>,
+<a href="https://material-motion.gitbooks.io/material-motion-team/content/community/">our community</a>, and
+our <a href="https://material-motion.gitbooks.io/material-motion-team/content/essentials/">contributor essentials</a>.</p>
+<a href='#license' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='license'>License</h2>
+
+<p>Licensed under the Apache 2.0 license. See LICENSE for details.</p>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2016 <a class="link" href="https://github.com/material-motion/material-motion-family-coreanimation-swift" target="_blank" rel="external">The Material Motion Authors</a>. All rights reserved. (Last updated: 2016-10-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
