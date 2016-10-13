@@ -14,4 +14,15 @@
  limitations under the License.
  */
 
-// TODO: Import public headers.
+import Foundation
+
+extension Tween {
+  /** Commits the tween's from value to the given target. */
+  public func commitFromValue(to target: CALayer) {
+    target.setValue(from, forKeyPath: keyPath)
+  }
+  /** Commits the tween's to value to the given target. */
+  public func commitToValue(to target: CALayer) {
+    target.setValue(to, forKeyPath: keyPath)
+  }
+}

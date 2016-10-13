@@ -1,0 +1,23 @@
+PODS:
+  - CatalogByConvention (2.0.0)
+  - MaterialMotionCoreAnimationFamily (1.0.0):
+    - MaterialMotionRuntime (~> 4.0)
+  - MaterialMotionRuntime (4.0.0)
+
+DEPENDENCIES:
+  - CatalogByConvention
+  - MaterialMotionCoreAnimationFamily (from `./`)
+  - MaterialMotionRuntime
+
+EXTERNAL SOURCES:
+  MaterialMotionCoreAnimationFamily:
+    :path: "./"
+
+SPEC CHECKSUMS:
+  CatalogByConvention: be55c2263132e4f9f59299ac8a528ee8715b3275
+  MaterialMotionCoreAnimationFamily: e17b091eb7b9a77bc673695837260dac0d34a03b
+  MaterialMotionRuntime: 0542afcb0329e032f198d711941fc667f42cc0a2
+
+PODFILE CHECKSUM: a5aa806046ad19daca182a69f93cd45841e04968
+
+COCOAPODS: 1.1.0.rc.3
