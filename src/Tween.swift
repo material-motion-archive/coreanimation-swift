@@ -29,10 +29,10 @@ public final class Tween: NSObject, Plan {
   public var delay: CFTimeInterval = 0
 
   /** The initial value of the tween. See CABasicAnimation documentation for more details. */
-  public var from: Any?
+  public var from: AnyObject?
 
   /** The final value of the tween. See CABasicAnimation documentation for more details. */
-  public var to: Any?
+  public var to: AnyObject?
 
   /**
    The timing function to apply to the animation.
