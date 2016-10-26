@@ -41,6 +41,9 @@ public final class Tween: NSObject, Plan {
    */
   public var timingFunction: CAMediaTimingFunction?
 
+  /**
+   Initialize a tween with its required properties.
+   */
   @objc(initWithKeyPath:duration:)
   public init(_ keyPath: String, duration: CFTimeInterval) {
     self.keyPath = keyPath
