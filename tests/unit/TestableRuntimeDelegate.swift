@@ -18,14 +18,14 @@ import XCTest
 import Foundation
 import MaterialMotionRuntime
 
-class TestableSchedulerDelegate: NSObject, SchedulerDelegate {
+class TestableRuntimeDelegate: NSObject, RuntimeDelegate {
   var activityStateDidChange = false
   var didIdleExpectation: XCTestExpectation?
 
-  func schedulerActivityStateDidChange(_ scheduler: Scheduler) {
+  func runtimeActivityStateDidChange(_ runtime: Runtime) {
     self.activityStateDidChange = true
 
-    if scheduler.activityState == .idle {
+    if runtime.activityState == .idle {
       didIdleExpectation?.fulfill()
     }
   }

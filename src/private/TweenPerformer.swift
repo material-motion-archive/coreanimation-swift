@@ -17,7 +17,7 @@
 import UIKit
 import MaterialMotionRuntime
 
-class TweenPerformer: NSObject, PlanPerforming, ContinuousPerforming {
+class TweenPerformer: NSObject, ContinuousPerforming {
   let target: CALayer
   required init(target: Any) {
     if let view = target as? UIView {

@@ -1,5 +1,5 @@
 abstract_target 'MaterialMotionCoreAnimationFamily' do
-  pod 'MaterialMotionRuntime'
+  pod 'MaterialMotionRuntime', "~> 5.0"
   pod 'CatalogByConvention'
 
   pod 'MaterialMotionCoreAnimationFamily', :path => './'
