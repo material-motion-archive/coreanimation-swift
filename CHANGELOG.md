@@ -1,6 +1,18 @@
-# release-candidate
+# 1.1.0
 
- TODO: Enumerate changes.
+This release adds support for Runtime v5.
+
+## Source changes
+
+* [Revert "Implement KeyframeTween."](https://github.com/material-motion/material-motion-family-coreanimation-swift/commit/b04b40b4f335e08e9a388c322cd422aacbeca94b) (Jeff Verkoeyen)
+* [Add support for Runtime v5.0.0.](https://github.com/material-motion/material-motion-family-coreanimation-swift/commit/e2818cf0d02fa7e49a023d0fd5c365a02a804ae7) (Jeff Verkoeyen)
+* [Implement KeyframeTween.](https://github.com/material-motion/material-motion-family-coreanimation-swift/commit/38254f4b7e6c3e1a0a0fd77a3323149e9cb1bbc0) (Jeff Verkoeyen)
+
+## Non-source changes
+
+* [Automatic changelog preparation for release.](https://github.com/material-motion/material-motion-family-coreanimation-swift/commit/6f21da787527e78eff0889735e7e598cb1ed7148) (Jeff Verkoeyen)
+* [Update Podfile.lock with latest CocoaPods version.](https://github.com/material-motion/material-motion-family-coreanimation-swift/commit/46bde21ed70d62fcbb07df916fe8ccd4191ec0fb) (Jeff Verkoeyen)
+
 # 1.0.0
 
 Initial release.
