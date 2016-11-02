@@ -1,5 +1,5 @@
 module: MaterialMotionCoreAnimationFamily
-module_version: 1.0.0
+module_version: 1.1.0
 sdk: iphonesimulator
 xcodebuild_arguments:
   - -workspace
@@ -7,4 +7,4 @@ xcodebuild_arguments:
   - -scheme
   - MaterialMotionCoreAnimationFamily
 github_url: https://github.com/material-motion/material-motion-family-coreanimation-swift
-github_file_prefix: https://github.com/material-motion/material-motion-family-coreanimation-swift/tree/v1.0.0
+github_file_prefix: https://github.com/material-motion/material-motion-family-coreanimation-swift/tree/v1.1.0
