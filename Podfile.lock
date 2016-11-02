@@ -1,6 +1,6 @@
 PODS:
   - CatalogByConvention (2.0.0)
-  - MaterialMotionCoreAnimationFamily (1.0.0):
+  - MaterialMotionCoreAnimationFamily (1.1.0):
     - MaterialMotionRuntime (< 6.0, >= 4.0)
   - MaterialMotionRuntime (5.0.0)
 
@@ -15,7 +15,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   CatalogByConvention: be55c2263132e4f9f59299ac8a528ee8715b3275
-  MaterialMotionCoreAnimationFamily: 1fd387ed81a7b8d260dc29a379e756aa87df759d
+  MaterialMotionCoreAnimationFamily: 7d1eb6d4b6536164a5976308c231098c44a2c730
   MaterialMotionRuntime: 620695e40aaf12f728342cef0b784b1d3eaa1125
 
 PODFILE CHECKSUM: edb0fc54ffa8aa6363ab6f520ae4e22f74ff4f79
