@@ -17,7 +17,7 @@
 import UIKit
 import MaterialMotionRuntime
 
-class KeyframeTweenPerformer: NSObject, PlanPerforming, ContinuousPerforming {
+class KeyframeTweenPerformer: NSObject, ContinuousPerforming {
   let target: CALayer
   required init(target: Any) {
     if let view = target as? UIView {

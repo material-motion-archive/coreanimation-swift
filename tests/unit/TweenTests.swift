@@ -25,15 +25,15 @@ class TweenTests: XCTestCase {
 
     let view = UIView()
 
-    let scheduler = Scheduler()
-    let delegate = TestableSchedulerDelegate()
+    let runtime = Runtime()
+    let delegate = TestableRuntimeDelegate()
     delegate.didIdleExpectation = expectation(description: "Did idle")
-    scheduler.delegate = delegate
+    runtime.delegate = delegate
 
-    scheduler.addPlan(animation, to: view)
+    runtime.addPlan(animation, to: view)
 
     waitForExpectations(timeout: 0.3)
 
-    XCTAssertEqual(scheduler.activityState, .idle)
+    XCTAssertEqual(runtime.activityState, .idle)
   }
 }

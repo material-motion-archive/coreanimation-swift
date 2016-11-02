@@ -33,7 +33,7 @@ class PopupMenuViewController: UIViewController {
 
   var buttonsShowing: Bool = false
 
-  let scheduler = Scheduler()
+  let runtime = Runtime()
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -126,7 +126,7 @@ class PopupMenuViewController: UIViewController {
     let btn3Fade = generateBtnFade(btn: additionalBtn3!)
 
     func addAndCommit(tween: Tween, to target: CALayer) {
-      scheduler.addPlan(tween, to: target)
+      runtime.addPlan(tween, to: target)
       tween.commitToValue(to: target)
     }
     addAndCommit(tween: smallerBtn, to: mainBtn!.layer)
