@@ -29,18 +29,7 @@
   tween.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
   tween.from = @2;
   tween.to = @2;
-  XCTAssertEqualObjects(tween.keyPath, @"opacity");
-  XCTAssertEqual(tween.duration, 0.1);
-}
-
-- (void)testKeyframeTweenAPI {
-  MDMKeyframeTween *tween = [[MDMKeyframeTween alloc] initWithKeyPath:@"opacity" duration:0.1 values:@[ @0, @0.5 ]];
-  tween.delay = 0.1;
-  tween.timingFunctions = @[ [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn] ];
-  tween.offsets = @[ @0, @1 ];
-  XCTAssertEqualObjects(tween.keyPath, @"opacity");
-  XCTAssertEqualObjects(tween.values[0], @0);
-  XCTAssertEqualObjects(tween.values[1], @0.5);
+  XCTAssertEqual(tween.keyPath, @"opacity");
   XCTAssertEqual(tween.duration, 0.1);
 }
 
