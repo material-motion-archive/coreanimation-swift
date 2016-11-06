@@ -30,16 +30,26 @@ class TweenPerformer: NSObject, ContinuousPerforming {
   func addPlan(_ plan: Plan) {
     let tween = plan as! Tween
 
-    let animation = CABasicAnimation(keyPath: tween.keyPath)
-    animation.fromValue = tween.from
-    animation.toValue = tween.to
-    animation.timingFunction = tween.timingFunction
+    let animation: CAAnimation
+    if tween.values.count > 1 {
+      let keyframeAnimation = CAKeyframeAnimation(keyPath: tween.keyPath)
+      keyframeAnimation.values = tween.values
+      keyframeAnimation.keyTimes = tween.keyPositions?.map { NSNumber(value: $0) }
+      keyframeAnimation.timingFunctions = tween.timingFunctions
+      animation = keyframeAnimation
+    } else {
+      let basicAnimation = CABasicAnimation(keyPath: tween.keyPath)
+      basicAnimation.toValue = tween.values.last
+      basicAnimation.timingFunction = tween.timingFunctions?.first
+      animation = basicAnimation
+    }
     animation.duration = tween.duration
     animation.beginTime = tween.delay
 
+    guard let token = tokenGenerator.generate() else { return }
+
     CATransaction.begin()
 
-    guard let token = tokenGenerator.generate() else { return }
     CATransaction.setCompletionBlock {
       token.terminate()
     }

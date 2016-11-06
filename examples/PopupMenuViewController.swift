@@ -87,33 +87,30 @@ class PopupMenuViewController: UIViewController {
     let bounceTimingFunction = CAMediaTimingFunction(controlPoints: 0.5, 1.6, 1, 1)
 
     // Make main button smaller
-    let smallerBtn = Tween("transform", duration: animDuration)
-
     let initialTransform = CATransform3DIdentity
     let endTransform = CATransform3DMakeScale(0.6, 0.6, 1.0)
-
-    smallerBtn.from = NSValue(caTransform3D: buttonsShowing ? endTransform : initialTransform)
-    smallerBtn.to = NSValue(caTransform3D: buttonsShowing ? initialTransform : endTransform)
-    smallerBtn.timingFunction = bounceTimingFunction
+    let smallerBtn = Tween("transform",
+                           duration: animDuration,
+                           values: [NSValue(caTransform3D: buttonsShowing ? endTransform : initialTransform),
+                                    NSValue(caTransform3D: buttonsShowing ? initialTransform : endTransform)])
+    smallerBtn.timingFunctions = [bounceTimingFunction]
 
     // Main button shadow smaller
-    let smallerShadow = Tween("shadowRadius", duration: animDuration)
-
     let initialRadius = 5
     let endRadius = 2
-
-    smallerShadow.from = NSNumber(value: buttonsShowing ? endRadius : initialRadius)
-    smallerShadow.to = NSNumber(value: buttonsShowing ? initialRadius : endRadius)
-    smallerShadow.timingFunction = bounceTimingFunction
+    let smallerShadow = Tween("shadowRadius",
+                              duration: animDuration,
+                              values: [NSNumber(value: buttonsShowing ? endRadius : initialRadius),
+                                       NSNumber(value: buttonsShowing ? initialRadius : endRadius)])
+    smallerShadow.timingFunctions = [bounceTimingFunction]
 
     // Main button grey
-    let greyButton = Tween("backgroundColor", duration: animDuration)
-
-    let initialColor: AnyObject = UIColor.orange.cgColor
-    let endColor: AnyObject = UIColor.lightGray.cgColor
-
-    greyButton.from = buttonsShowing ? endColor : initialColor
-    greyButton.to = buttonsShowing ? initialColor : endColor
+    let initialColor = UIColor.orange.cgColor
+    let endColor = UIColor.lightGray.cgColor
+    let greyButton = Tween("backgroundColor",
+                           duration: animDuration,
+                           values: [buttonsShowing ? endColor : initialColor,
+                                    buttonsShowing ? initialColor : endColor])
 
     // Move and fade buttons
     let btn1Move = generateBtnMove(btn: additionalBtn1!, distance: distFromMainButton, angle: angle1, timing: bounceTimingFunction)
@@ -127,7 +124,7 @@ class PopupMenuViewController: UIViewController {
 
     func addAndCommit(tween: Tween, to target: CALayer) {
       runtime.addPlan(tween, to: target)
-      tween.commitToValue(to: target)
+      tween.commitLastValue(to: target)
     }
     addAndCommit(tween: smallerBtn, to: mainBtn!.layer)
     addAndCommit(tween: greyButton, to: mainBtn!.layer)
@@ -143,29 +140,28 @@ class PopupMenuViewController: UIViewController {
   }
 
   func generateBtnMove(btn: CALayer, distance: CGFloat, angle: Float, timing: CAMediaTimingFunction) -> Tween {
-    let move = Tween("position", duration: animDuration)
     let initialPos = mainBtn!.layer.position
 
     let x = initialPos.x - CGFloat(sinf(angle)) * distance
     let y = initialPos.y - CGFloat(cosf(angle)) * distance
     let endPos = CGPoint(x: x, y: y)
 
-    move.from = NSValue(cgPoint: buttonsShowing ? endPos : initialPos)
-    move.to = NSValue(cgPoint: buttonsShowing ? initialPos : endPos)
-    move.timingFunction = timing
+    let move = Tween("position",
+                     duration: animDuration,
+                     values: [NSValue(cgPoint: buttonsShowing ? endPos : initialPos),
+                              NSValue(cgPoint: buttonsShowing ? initialPos : endPos)])
+    move.timingFunctions = [timing]
 
     return move
   }
 
   func generateBtnFade(btn: CALayer) -> Tween {
-    let fade = Tween("opacity", duration: animDuration)
-
     let initialOpacity = NSNumber(value: 0.0)
     let endOpacity = NSNumber(value: 1.0)
 
-    fade.from = buttonsShowing ? endOpacity : initialOpacity
-    fade.to = buttonsShowing ? initialOpacity : endOpacity
-
-    return fade
+    return Tween("opacity",
+                 duration: animDuration,
+                 values: [buttonsShowing ? endOpacity : initialOpacity,
+                          buttonsShowing ? initialOpacity : endOpacity])
   }
 }
