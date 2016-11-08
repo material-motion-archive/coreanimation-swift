@@ -83,24 +83,32 @@ public final class Tween: NSObject, Plan {
     return tween
   }
 
-  /** The initial value of the tween. See CABasicAnimation documentation for more details. */
-  @available(*, deprecated, message: "Use values instead. Deprecated in v1.2.0.")
+  /**
+   Deprecated. Use `values` instead.
+
+   If both values and from are provided, then values will be preferred.
+   */
+  @available(*, deprecated, message: "Use values instead. Deprecated in v2.0.0.")
   public var from: AnyObject?
 
-  /** The final value of the tween. See CABasicAnimation documentation for more details. */
-  @available(*, deprecated, message: "Use values instead. Deprecated in v1.2.0.")
+  /**
+   Deprecated. Use `values` instead.
+
+   If both values and from are provided, then values will be preferred.
+   */
+  @available(*, deprecated, message: "Use values instead. Deprecated in v2.0.0.")
   public var to: AnyObject?
 
   /**
-   The timing function to apply to the animation.
+   Deprecated. Use `timingFunction = [timingFunction]` instead.
 
-   A nil timing function indicates linear pacing.
+   If both timingFunctions and timingFunction are provided, then timingFunctions will be preferred.
    */
-  @available(*, deprecated, message: "Use timingFunction = [timingFunction] instead. Deprecated in v1.2.0.")
+  @available(*, deprecated, message: "Use timingFunction = [timingFunction] instead. Deprecated in v2.0.0.")
   public var timingFunction: CAMediaTimingFunction?
 
   /** Initializes a tween instance with its required properties. */
-  @available(*, deprecated, message: "Use initWithKeyPath:duration:values: instead. Deprecated in v1.2.0.")
+  @available(*, deprecated, message: "Use initWithKeyPath:duration:values: instead. Deprecated in v2.0.0.")
   @objc(initWithKeyPath:duration:)
   public init(_ keyPath: String, duration: CFTimeInterval) {
     self.keyPath = keyPath

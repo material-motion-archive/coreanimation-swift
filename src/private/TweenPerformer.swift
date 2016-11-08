@@ -30,17 +30,41 @@ class TweenPerformer: NSObject, ContinuousPerforming {
   func addPlan(_ plan: Plan) {
     let tween = plan as! Tween
 
+    let values: [Any]
+    if tween.values != nil {
+      values = tween.values
+    } else if let from = tween.from, let to = tween.to {
+      values = [from, to]
+    } else if let from = tween.from {
+      assertionFailure("Nil to value and non-nil from value is unsupported as of v2.0.0.")
+      values = []
+    } else if let to = tween.to {
+      values = [to]
+    } else {
+      assertionFailure("No value provided.")
+      values = []
+    }
+
+    let timingFunctions: [CAMediaTimingFunction]?
+    if tween.timingFunctions != nil {
+      timingFunctions = tween.timingFunctions
+    } else if let timingFunction = tween.timingFunction {
+      timingFunctions = [timingFunction]
+    } else {
+      timingFunctions = nil
+    }
+
     let animation: CAAnimation
-    if tween.values.count > 1 {
+    if values.count > 1 {
       let keyframeAnimation = CAKeyframeAnimation(keyPath: tween.keyPath)
-      keyframeAnimation.values = tween.values
+      keyframeAnimation.values = values
       keyframeAnimation.keyTimes = tween.keyPositions?.map { NSNumber(value: $0) }
-      keyframeAnimation.timingFunctions = tween.timingFunctions
+      keyframeAnimation.timingFunctions = timingFunctions
       animation = keyframeAnimation
     } else {
       let basicAnimation = CABasicAnimation(keyPath: tween.keyPath)
-      basicAnimation.toValue = tween.values.last
-      basicAnimation.timingFunction = tween.timingFunctions?.first
+      basicAnimation.toValue = values.last
+      basicAnimation.timingFunction = timingFunctions?.first
       animation = basicAnimation
     }
     animation.duration = tween.duration
