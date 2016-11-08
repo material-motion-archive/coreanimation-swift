@@ -96,7 +96,7 @@ public final class Tween: NSObject, Plan {
 
    A nil timing function indicates linear pacing.
    */
-  @available(*, deprecated, message: "No replacement API. Deprecated in v1.2.0.")
+  @available(*, deprecated, message: "Use timingFunction = [timingFunction] instead. Deprecated in v1.2.0.")
   public var timingFunction: CAMediaTimingFunction?
 
   /** Initializes a tween instance with its required properties. */
