@@ -17,7 +17,7 @@
 import UIKit
 import MaterialMotionRuntime
 
-class TweenPerformer: NSObject, ContinuousPerforming {
+class TweenPerformer: NSObject, ContinuousPerforming, ComposablePerforming {
   let target: CALayer
   required init(target: Any) {
     if let view = target as? UIView {
@@ -68,7 +68,12 @@ class TweenPerformer: NSObject, ContinuousPerforming {
       animation = basicAnimation
     }
     animation.duration = tween.duration
-    animation.beginTime = tween.delay
+    if let timeline = tween.timeline {
+      emitter.emitPlan(TimelineScrubbable(timeline))
+      animation.beginTime = target.convertTime(timeline.beginTime!.doubleValue, to: nil) + tween.delay
+    } else {
+      animation.beginTime = target.convertTime(CACurrentMediaTime(), to: nil) + tween.delay
+    }
 
     guard let token = tokenGenerator.generate() else { return }
 
@@ -86,5 +91,10 @@ class TweenPerformer: NSObject, ContinuousPerforming {
   var tokenGenerator: IsActiveTokenGenerating!
   func set(isActiveTokenGenerator: IsActiveTokenGenerating) {
     tokenGenerator = isActiveTokenGenerator
+  }
+
+  var emitter: PlanEmitting!
+  func setPlanEmitter(_ planEmitter: PlanEmitting) {
+    emitter = planEmitter
   }
 }

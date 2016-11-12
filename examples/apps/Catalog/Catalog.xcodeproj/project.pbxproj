@@ -12,6 +12,7 @@
 		666FAA8E1D384A6B000363DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 666FAA8C1D384A6B000363DA /* LaunchScreen.storyboard */; };
 		66A277841DA2E9DD00AFA57B /* TweenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A277831DA2E9DD00AFA57B /* TweenTests.swift */; };
 		66A2778D1DA6CDE800AFA57B /* ObjectiveCAPITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A2778C1DA6CDE800AFA57B /* ObjectiveCAPITests.m */; };
+		66C3CA4D1DDBB71400E49BFF /* TimelineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C3CA4B1DDBB71200E49BFF /* TimelineTests.swift */; };
 		66E620301D47D2340021B138 /* TestableRuntimeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E6202F1D47D2340021B138 /* TestableRuntimeDelegate.swift */; };
 		66ED61031DAD4D3C00E515BB /* TableOfContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ED61021DAD4D3C00E515BB /* TableOfContents.swift */; };
 		684FAFA086BF0726046A1922 /* Pods_MaterialMotionCoreAnimation_Catalog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40A55BA6ECA68DA85BDAE83D /* Pods_MaterialMotionCoreAnimation_Catalog.framework */; };
@@ -44,6 +45,7 @@
 		666FAAA71D384D51000363DA /* UnitTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UnitTests-Bridging-Header.h"; path = "../UnitTests/UnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		66A277831DA2E9DD00AFA57B /* TweenTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweenTests.swift; sourceTree = "<group>"; };
 		66A2778C1DA6CDE800AFA57B /* ObjectiveCAPITests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectiveCAPITests.m; sourceTree = "<group>"; };
+		66C3CA4B1DDBB71200E49BFF /* TimelineTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineTests.swift; sourceTree = "<group>"; };
 		66E6202F1D47D2340021B138 /* TestableRuntimeDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestableRuntimeDelegate.swift; sourceTree = "<group>"; };
 		66ED61021DAD4D3C00E515BB /* TableOfContents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableOfContents.swift; path = Catalog/TableOfContents.swift; sourceTree = "<group>"; };
 		6B6E300969F3ED1F367BDC81 /* Pods_MaterialMotionCoreAnimation_UnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MaterialMotionCoreAnimation_UnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				66A277831DA2E9DD00AFA57B /* TweenTests.swift */,
+				66C3CA4B1DDBB71200E49BFF /* TimelineTests.swift */,
 				66E6202F1D47D2340021B138 /* TestableRuntimeDelegate.swift */,
 				66A2778C1DA6CDE800AFA57B /* ObjectiveCAPITests.m */,
 			);
@@ -382,6 +385,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66C3CA4D1DDBB71400E49BFF /* TimelineTests.swift in Sources */,
 				66E620301D47D2340021B138 /* TestableRuntimeDelegate.swift in Sources */,
 				66A277841DA2E9DD00AFA57B /* TweenTests.swift in Sources */,
 				66A2778D1DA6CDE800AFA57B /* ObjectiveCAPITests.m in Sources */,

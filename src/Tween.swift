@@ -58,6 +58,12 @@ public final class Tween: NSObject, Plan {
    */
   public var timingFunctions: [CAMediaTimingFunction]?
 
+  /**
+   Tweens that are associated with a timeline can be paused, rewound, and fast-forwarded by
+   attaching a scrubber to the timeline instance.
+   */
+  public var timeline: Timeline?
+
   /** Initializes a tween instance with its required properties. */
   @objc(initWithKeyPath:duration:values:)
   public init(_ keyPath: String, duration: CFTimeInterval, values: [Any]) {
@@ -80,6 +86,7 @@ public final class Tween: NSObject, Plan {
     tween.to = to
     tween.timingFunction = timingFunction
     tween.delay = delay
+    tween.timeline = timeline
     return tween
   }
 
