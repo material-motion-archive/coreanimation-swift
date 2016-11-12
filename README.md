@@ -14,15 +14,16 @@ The Core Animation Material Motion family provides a bridge between
 
 ## Features
 
-`Tween` uses Core Animation's CABasicAnimation to animate a CALayer property along an easing curve.
+`Tween` uses Core Animation's CAKeyframeAnimation to animate a CALayer property along an easing
+curve.
 
-Use a Tween like you would use a CABasicAnimation instance: provide a key path, duration, and one or
-both of the from/to value.
+Use a Tween like you would use a CAKeyframeAnimation instance: provide a key path, duration, and
+an array of values.
 
 ```swift
-let tweenBackgroundColor = Tween("backgroundColor", duration: animDuration)
-tweenBackgroundColor.from = UIColor.orange.cgColor
-tweenBackgroundColor.to = UIColor.lightGray.cgColor
+let tweenBackgroundColor = Tween("backgroundColor",
+                                 duration: animDuration,
+                                 values: [UIColor.orange.cgColor, UIColor.lightGray.cgColor])
 scheduler.addPlan(tweenBackgroundColor, to: myView)
 ```
 
@@ -32,10 +33,10 @@ Tween's properties map to the following Core Animation properties:
 |:-----:|:--------------:|
 | delay  | delay |
 | duration  | duration |
-| from  | fromValue |
 | keyPath  | keyPath |
-| to  | toValue |
-| timingFunction  | timingFunction |
+| keyPositions  | keyTimes |
+| timingFunctions  | timingFunctions |
+| values  | values |
 
 No other Core Animation properties are presently supported. View our filed
 [feature requests](https://github.com/material-motion/material-motion-family-coreanimation-swift/labels/Feature%20request)
@@ -90,18 +91,41 @@ Code snippets:
 ***In Objective-C:***
 
 ```objc
-MDMTween *tween = [[MDMTween alloc] initWithKeyPath:@"<#key path#>" duration:<#duration#>];
-tween.from = <#from value#>;
-tween.to = <#to value#>;
+MDMTween *tween = [[MDMTween alloc] initWithKeyPath:@"<#key path#>"
+                                           duration:<#duration#>
+                                             values:@[<#values...#>]];
 [scheduler addPlan:tween to:<#Object#>];
 ```
 
 ***In Swift:***
 
 ```swift
-let tween = Tween(<#key path#>, duration: <#duration#>)
-tween.from = <#from value#>
-tween.to = <#to value#>
+let tween = Tween(<#key path#>, duration: <#duration#>, values: [<#values...#>])
+scheduler.addPlan(tween, to: <#Object#>)
+```
+
+### How to animate a property with just a destination value
+
+Provide Tween with a single value and it will treat this value as the `toValue` of a
+CABasicAnimation. As per the Core Animation documentation:
+
+> Interpolates between the layer's current value of the property in the render tree and `toValue'.
+
+Code snippets:
+
+***In Objective-C:***
+
+```objc
+MDMTween *tween = [[MDMTween alloc] initWithKeyPath:@"<#key path#>"
+                                           duration:<#duration#>
+                                             values:@[<#value#>]];
+[scheduler addPlan:tween to:<#Object#>];
+```
+
+***In Swift:***
+
+```swift
+let tween = Tween(<#key path#>, duration: <#duration#>, values: [<#value#>])
 scheduler.addPlan(tween, to: <#Object#>)
 ```
 
@@ -116,13 +140,15 @@ Code snippets:
 ***In Objective-C:***
 
 ```objc
-[tween commitToValueTo:<#CALayer#>]
+[tween commitFirstValueTo:<#CALayer#>];
+[tween commitLastValueTo:<#CALayer#>];
 ```
 
 ***In Swift:***
 
 ```swift
-tween.commitToValue(to: <#CALayer#>)
+tween.commitFirstValue(to: <#CALayer#>)
+tween.commitLastValue(to: <#CALayer#>)
 ```
 
 ## Contributing
