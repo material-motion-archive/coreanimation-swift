@@ -16,7 +16,7 @@
 
 import XCTest
 import MaterialMotionRuntime
-import MaterialMotionCoreAnimationFamily
+import MaterialMotionCoreAnimation
 
 class TweenTests: XCTestCase {
 

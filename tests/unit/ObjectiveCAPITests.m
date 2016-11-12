@@ -16,7 +16,7 @@
 
 #import <XCTest/XCTest.h>
 
-@import MaterialMotionCoreAnimationFamily;
+@import MaterialMotionCoreAnimation;
 
 @interface ObjectiveCAPITests : XCTestCase
 @end

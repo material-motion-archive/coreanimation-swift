@@ -1,10 +1,10 @@
-abstract_target 'MaterialMotionCoreAnimationFamily' do
+abstract_target 'MaterialMotionCoreAnimation' do
   pod 'MaterialMotionRuntime', "~> 5.0"
   pod 'CatalogByConvention'
 
-  pod 'MaterialMotionCoreAnimationFamily', :path => './'
+  pod 'MaterialMotionCoreAnimation', :path => './'
 
-  workspace 'MaterialMotionCoreAnimationFamily.xcworkspace'
+  workspace 'MaterialMotionCoreAnimation.xcworkspace'
   use_frameworks!
 
   target "Catalog" do

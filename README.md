@@ -1,11 +1,11 @@
-# Core Animation Material Motion Family
+# Core Animation for Material Motion (Swift)
 
-[![Build Status](https://travis-ci.org/material-motion/family-coreanimation-swift.svg?branch=develop)](https://travis-ci.org/material-motion/family-coreanimation-swift)
-[![codecov](https://codecov.io/gh/material-motion/family-coreanimation-swift/branch/develop/graph/badge.svg)](https://codecov.io/gh/material-motion/family-coreanimation-swift)
+[![Build Status](https://travis-ci.org/material-motion/coreanimation-swift.svg?branch=develop)](https://travis-ci.org/material-motion/coreanimation-swift)
+[![codecov](https://codecov.io/gh/material-motion/coreanimation-swift/branch/develop/graph/badge.svg)](https://codecov.io/gh/material-motion/coreanimation-swift)
 
-The Core Animation Material Motion family provides a bridge between
+This library provides a bridge between
 [Core Animation](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/CoreAnimation_guide/Introduction/Introduction.html) and the
-[Material Motion runtime](https://github.com/material-motion/material-motion-runtime-objc).
+[Material Motion runtime](https://github.com/material-motion/runtime-objc).
 
 ## Supported languages
 
@@ -39,7 +39,7 @@ Tween's properties map to the following Core Animation properties:
 | values  | values |
 
 No other Core Animation properties are presently supported. View our filed
-[feature requests](https://github.com/material-motion/material-motion-family-coreanimation-swift/labels/Feature%20request)
+[feature requests](https://github.com/material-motion/coreanimation-swift/labels/Feature%20request)
 to track progress on supporting additional functionality.
 
 ## Installation
@@ -53,9 +53,9 @@ to track progress on supporting additional functionality.
 >
 >     gem install cocoapods
 
-Add `MaterialMotionCoreAnimationFamily` to your `Podfile`:
+Add `MaterialMotionCoreAnimation` to your `Podfile`:
 
-    pod 'MaterialMotionCoreAnimationFamily'
+    pod 'MaterialMotionCoreAnimation'
 
 Then run the following command:
 
@@ -65,7 +65,7 @@ Then run the following command:
 
 Import the framework:
 
-    @import MaterialMotionCoreAnimationFamily;
+    @import MaterialMotionCoreAnimation;
 
 You will now have access to all of the APIs.
 
@@ -74,10 +74,10 @@ You will now have access to all of the APIs.
 Check out a local copy of the repo to access the Catalog application by running the following
 commands:
 
-    git clone https://github.com/material-motion/material-motion-family-coreanimation-swift.git
-    cd material-motion-family-coreanimation-swift
+    git clone https://github.com/material-motion/coreanimation-swift.git
+    cd coreanimation-swift
     pod install
-    open MaterialMotionCoreAnimationFamily.xcworkspace
+    open MaterialMotionCoreAnimation.xcworkspace
 
 ## Guides
 
@@ -155,11 +155,11 @@ tween.commitLastValue(to: <#CALayer#>)
 
 We welcome contributions!
 
-Check out our [upcoming milestones](https://github.com/material-motion/material-motion-family-coreanimation-swift/milestones).
+Check out our [upcoming milestones](https://github.com/material-motion/coreanimation-swift/milestones).
 
-Learn more about [our team](https://material-motion.gitbooks.io/material-motion-team/content/),
-[our community](https://material-motion.gitbooks.io/material-motion-team/content/community/), and
-our [contributor essentials](https://material-motion.gitbooks.io/material-motion-team/content/essentials/).
+Learn more about [our team](https://material-motion.github.io/material-motion/team/),
+[our community](https://material-motion.github.io/material-motion/team/community/), and
+our [contributor essentials](https://material-motion.github.io/material-motion/team/essentials/).
 
 ## License
 

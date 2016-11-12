@@ -16,7 +16,7 @@
 
 import UIKit
 import MaterialMotionRuntime
-import MaterialMotionCoreAnimationFamily
+import MaterialMotionCoreAnimation
 
 let animDuration = 0.2
 let distFromMainButton: CGFloat = 100.0
