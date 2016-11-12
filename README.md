@@ -1,7 +1,7 @@
 # Core Animation Material Motion Family
 
-[![Build Status](https://travis-ci.org/material-motion/material-motion-family-coreanimation-swift.svg?branch=develop)](https://travis-ci.org/material-motion/material-motion-family-coreanimation-swift)
-[![codecov](https://codecov.io/gh/material-motion/material-motion-family-coreanimation-swift/branch/develop/graph/badge.svg)](https://codecov.io/gh/material-motion/material-motion-family-coreanimation-swift)
+[![Build Status](https://travis-ci.org/material-motion/family-coreanimation-swift.svg?branch=develop)](https://travis-ci.org/material-motion/family-coreanimation-swift)
+[![codecov](https://codecov.io/gh/material-motion/family-coreanimation-swift/branch/develop/graph/badge.svg)](https://codecov.io/gh/material-motion/family-coreanimation-swift)
 
 The Core Animation Material Motion family provides a bridge between
 [Core Animation](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/CoreAnimation_guide/Introduction/Introduction.html) and the
