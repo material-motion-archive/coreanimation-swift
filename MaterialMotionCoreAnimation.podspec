@@ -11,5 +11,5 @@ Pod::Spec.new do |s|
 
   s.source_files = "src/*.{swift}", "src/private/*.{swift}"
 
-  s.dependency "MaterialMotionRuntime", ">= 4.0", "< 6.0"
+  s.dependency "MaterialMotionRuntime", "~> 6.0"
 end
