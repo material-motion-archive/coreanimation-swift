@@ -32,9 +32,9 @@ Tween API now supports an arbitrary number of values. The old from/to APIs have 
 
 ### Tween
 
-*new* method: `commitToValue(to:)` in `Tween`
-
 *new* method: `commitFirstValue(to:)` in `Tween`
+
+*new* method: `commitLastValue(to:)` in `Tween`
 
 *new* var: `values` in `Tween`
 
@@ -48,7 +48,7 @@ Tween API now supports an arbitrary number of values. The old from/to APIs have 
 
 *deprecated* method: `commitFromValue(to:)` in `Tween`
 
-*deprecated* method: `commitLastValue(to:)` in `Tween`
+*deprecated* method: `commitToValue(to:)` in `Tween`
 
 *deprecated* method: `init(_:duration:)` in `Tween`
 
