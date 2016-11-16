@@ -70,9 +70,9 @@ class TweenPerformer: NSObject, ContinuousPerforming, ComposablePerforming {
     animation.duration = tween.duration
     if let timeline = tween.timeline {
       emitter.emitPlan(TimelineScrubbable(timeline))
-      animation.beginTime = target.convertTime(timeline.beginTime!.doubleValue, to: nil) + tween.delay
+      animation.beginTime = target.convertTime(timeline.beginTime!.doubleValue, from: nil) + tween.delay
     } else {
-      animation.beginTime = target.convertTime(CACurrentMediaTime(), to: nil) + tween.delay
+      animation.beginTime = target.convertTime(CACurrentMediaTime(), from: nil) + tween.delay
     }
 
     guard let token = tokenGenerator.generate() else { return }
