@@ -27,7 +27,7 @@ class TweenPerformer: NSObject, ContinuousPerforming, ComposablePerforming {
     let tween = plan as! Tween
 
     let values: [Any]
-    if tween.values != nil {
+    if tween.values.count > 0 {
       values = tween.values
     } else if let from = tween.from, let to = tween.to {
       values = [from, to]
