@@ -31,7 +31,7 @@ class TweenTests: XCTestCase {
     delegate.didIdleExpectation = expectation(description: "Did idle")
     runtime.delegate = delegate
 
-    runtime.addPlan(animation, to: view)
+    runtime.addPlan(animation, to: view.layer)
 
     waitForExpectations(timeout: 0.3)
 
@@ -48,7 +48,7 @@ class TweenTests: XCTestCase {
     delegate.didIdleExpectation = expectation(description: "Did idle")
     runtime.delegate = delegate
 
-    runtime.addPlan(animation, to: view)
+    runtime.addPlan(animation, to: view.layer)
 
     waitForExpectations(timeout: 0.3)
 

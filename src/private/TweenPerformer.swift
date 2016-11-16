@@ -20,11 +20,7 @@ import MaterialMotionRuntime
 class TweenPerformer: NSObject, ContinuousPerforming, ComposablePerforming {
   let target: CALayer
   required init(target: Any) {
-    if let view = target as? UIView {
-      self.target = view.layer
-    } else {
-      self.target = target as! CALayer
-    }
+    self.target = target as! CALayer
   }
 
   func addPlan(_ plan: Plan) {

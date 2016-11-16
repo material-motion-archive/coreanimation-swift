@@ -16,7 +16,11 @@
 
 import MaterialMotionRuntime
 
-/** Interpolate a CALayer property from one value to another. */
+/**
+ Interpolate a CALayer property from one value to another.
+
+ Expected target type: CALayer.
+ */
 @objc(MDMTween)
 public final class Tween: NSObject, Plan {
   /** The key path of the property whose value will be tweened. */

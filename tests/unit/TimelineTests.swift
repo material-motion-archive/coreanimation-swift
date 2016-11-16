@@ -30,7 +30,7 @@ class TimelineTests: XCTestCase {
 
     let animation = Tween("opacity", duration: 0.1, values: [0, 1])
     animation.timeline = timeline
-    runtime.addPlan(animation, to: view)
+    runtime.addPlan(animation, to: view.layer)
 
     XCTAssertEqual(view.layer.timeOffset, TimeInterval(timeline.beginTime!.doubleValue))
 
@@ -50,7 +50,7 @@ class TimelineTests: XCTestCase {
 
     let animation = Tween("opacity", duration: 0.1, values: [0, 1])
     animation.timeline = timeline
-    runtime.addPlan(animation, to: view)
+    runtime.addPlan(animation, to: view.layer)
 
     XCTAssertEqual(view.layer.timeOffset, TimeInterval(timeline.beginTime!.doubleValue))
 
