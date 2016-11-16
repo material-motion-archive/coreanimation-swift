@@ -1,4 +1,4 @@
-# release-candidate
+# 2.0.0
 
 ## Breaking changes
 
