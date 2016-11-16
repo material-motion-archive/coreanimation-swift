@@ -17,11 +17,22 @@
 import Foundation
 
 extension Tween {
+  /** Commits the tween's first value to the given target. */
+  public func commitFirstValue(to target: CALayer) {
+    target.setValue(values.first, forKeyPath: keyPath)
+  }
+  /** Commits the tween's last value to the given target. */
+  public func commitLastValue(to target: CALayer) {
+    target.setValue(values.last, forKeyPath: keyPath)
+  }
+
   /** Commits the tween's from value to the given target. */
+  @available(*, deprecated, message: "Use commitFirstValue instead. Deprecated in v1.2.0.")
   public func commitFromValue(to target: CALayer) {
     target.setValue(from, forKeyPath: keyPath)
   }
   /** Commits the tween's to value to the given target. */
+  @available(*, deprecated, message: "Use commitLastValue instead. Deprecated in v1.2.0.")
   public func commitToValue(to target: CALayer) {
     target.setValue(to, forKeyPath: keyPath)
   }

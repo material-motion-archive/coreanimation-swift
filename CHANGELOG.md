@@ -1,3 +1,71 @@
+# 2.0.0
+
+## Breaking changes
+
+- A Tween with a null to value and non-null from value is no longer supported.
+
+## New features
+
+Tweens can now be scrubbed along a Timeline using the optional `timeline` property.
+
+```
+// To associate a timeline with a tween:
+tween.timeline = timeline
+
+// To scrub the associated tweens:
+timeline.scrubber?.timeOffset = 0.1
+```
+
+Tween API now supports an arbitrary number of values. The old from/to APIs have been deprecated.
+
+## Source changes
+
+* [Remove UIView support from Tween performer.](https://github.com/material-motion/coreanimation-swift/commit/0a5a4ca70e9cac341487534e6d5967f2d4b4fff3) (Jeff Verkoeyen)
+* [Convert from absolute time to local time.](https://github.com/material-motion/coreanimation-swift/commit/d9eaa540ae4648e77e81f139e97ba3e020ee8473) (Jeff Verkoeyen)
+* [Add timeline property to Tween.](https://github.com/material-motion/coreanimation-swift/commit/0978987e5d996d4580ff32e2212e789d7b8a1f15) (Jeff Verkoeyen)
+* [Drop Family suffix and update naming throughout the repo.](https://github.com/material-motion/coreanimation-swift/commit/d8eb169d2ab4e29a63ff89ae47942524069da818) (Jeff Verkoeyen)
+* [Ensure that we still support from/to/timingFunction with the new APIs.](https://github.com/material-motion/coreanimation-swift/commit/edb1c5bd80c916ce3809e4140172979bbf1c5d58) (Jeff Verkoeyen)
+* [Add a recommendation to the timingFunction deprecation message.](https://github.com/material-motion/coreanimation-swift/commit/5bf40939bfef9822d24a7811a942f71a41741bc5) (Jeff Verkoeyen)
+* [Implement new keyframe-based Tween API.](https://github.com/material-motion/coreanimation-swift/commit/6200e00fd4cc2fc1a684ea740087444145022f8a) (Jeff Verkoeyen)
+
+## API changes
+
+### Tween
+
+*new* method: `commitToValue(to:)` in `Tween`
+
+*new* method: `commitFirstValue(to:)` in `Tween`
+
+*new* var: `values` in `Tween`
+
+*new* var: `timingFunctions` in `Tween`
+
+*new* var: `timeline` in `Tween`
+
+*new* var: `keyPositions` in `Tween`
+
+*new* method: `init(_:duration:values:)` in `Tween`
+
+*deprecated* method: `commitFromValue(to:)` in `Tween`
+
+*deprecated* method: `commitLastValue(to:)` in `Tween`
+
+*deprecated* method: `init(_:duration:)` in `Tween`
+
+*deprecated* var: `from` in `Tween`
+
+*deprecated* var: `to` in `Tween`
+
+*deprecated* var: `timingFunction` in `Tween`
+
+## Non-source changes
+
+* [Automatic changelog preparation for release.](https://github.com/material-motion/coreanimation-swift/commit/78bd1a249f36e8001611c44d4c466451df05df4b) (Jeff Verkoeyen)
+* [Update Runtime dependeny to v6.](https://github.com/material-motion/coreanimation-swift/commit/9fb3ff3029343f29b55a642b0b0bc35e3536ba1d) (Jeff Verkoeyen)
+* [Add callsign.](https://github.com/material-motion/coreanimation-swift/commit/5c1d17271914b5b5dead44b9b70a7dcf05230e79) (Jeff Verkoeyen)
+* [Update README.md with new values API.](https://github.com/material-motion/coreanimation-swift/commit/c4079f65ad1dca1b2d240c6f2835cbe4ce0cdfa9) (Jeff Verkoeyen)
+* [Update README.md](https://github.com/material-motion/coreanimation-swift/commit/e51953f5f249c67889e7571d04452d76a7dd905e) (featherless)
+
 # 1.1.0
 
 This release adds support for Runtime v5.

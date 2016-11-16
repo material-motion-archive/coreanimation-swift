@@ -9,17 +9,18 @@
   ],
   "arcanist_configuration": "HookConphig",
   "phabricator.uri": "http://codereview.cc/",
+  "repository.callsign": "MDMCASWIFT",
   "arc.land.onto.default": "develop",
   "arc.feature.start.default": "origin/develop",
   "unit.xcode": {
     "build": {
-      "workspace": "MaterialMotionCoreAnimationFamily.xcworkspace",
+      "workspace": "MaterialMotionCoreAnimation.xcworkspace",
       "scheme": "UnitTests",
       "configuration": "Debug",
       "destination": "platform=iOS Simulator,name=iPhone 6s"
     },
     "coverage": {
-      "product": "MaterialMotionCoreAnimationFamily.framework/MaterialMotionCoreAnimationFamily"
+      "product": "MaterialMotionCoreAnimation.framework/MaterialMotionCoreAnimation"
     },
     "pre-build": "pod install"
   }

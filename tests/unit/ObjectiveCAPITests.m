@@ -16,7 +16,7 @@
 
 #import <XCTest/XCTest.h>
 
-@import MaterialMotionCoreAnimationFamily;
+@import MaterialMotionCoreAnimation;
 
 @interface ObjectiveCAPITests : XCTestCase
 @end
@@ -24,8 +24,12 @@
 @implementation ObjectiveCAPITests
 
 - (void)testTweenAPI {
-  MDMTween *tween = [[MDMTween alloc] initWithKeyPath:@"opacity" duration:0.1];
+  MDMTween *tween = [[MDMTween alloc] initWithKeyPath:@"opacity" duration:0.1 values:@[]];
   tween.delay = 0.1;
+  tween.values = @[];
+  tween.keyPositions = @[];
+  tween.timingFunctions = @[];
+
   tween.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
   tween.from = @2;
   tween.to = @2;

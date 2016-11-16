@@ -1,11 +1,11 @@
-# Core Animation Material Motion Family
+# Core Animation for Material Motion (Swift)
 
-[![Build Status](https://travis-ci.org/material-motion/material-motion-family-coreanimation-swift.svg?branch=develop)](https://travis-ci.org/material-motion/material-motion-family-coreanimation-swift)
-[![codecov](https://codecov.io/gh/material-motion/material-motion-family-coreanimation-swift/branch/develop/graph/badge.svg)](https://codecov.io/gh/material-motion/material-motion-family-coreanimation-swift)
+[![Build Status](https://travis-ci.org/material-motion/coreanimation-swift.svg?branch=develop)](https://travis-ci.org/material-motion/coreanimation-swift)
+[![codecov](https://codecov.io/gh/material-motion/coreanimation-swift/branch/develop/graph/badge.svg)](https://codecov.io/gh/material-motion/coreanimation-swift)
 
-The Core Animation Material Motion family provides a bridge between
+This library provides a bridge between
 [Core Animation](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/CoreAnimation_guide/Introduction/Introduction.html) and the
-[Material Motion runtime](https://github.com/material-motion/material-motion-runtime-objc).
+[Material Motion runtime](https://github.com/material-motion/runtime-objc).
 
 ## Supported languages
 
@@ -14,15 +14,16 @@ The Core Animation Material Motion family provides a bridge between
 
 ## Features
 
-`Tween` uses Core Animation's CABasicAnimation to animate a CALayer property along an easing curve.
+`Tween` uses Core Animation's CAKeyframeAnimation to animate a CALayer property along an easing
+curve.
 
-Use a Tween like you would use a CABasicAnimation instance: provide a key path, duration, and one or
-both of the from/to value.
+Use a Tween like you would use a CAKeyframeAnimation instance: provide a key path, duration, and
+an array of values.
 
 ```swift
-let tweenBackgroundColor = Tween("backgroundColor", duration: animDuration)
-tweenBackgroundColor.from = UIColor.orange.cgColor
-tweenBackgroundColor.to = UIColor.lightGray.cgColor
+let tweenBackgroundColor = Tween("backgroundColor",
+                                 duration: animDuration,
+                                 values: [UIColor.orange.cgColor, UIColor.lightGray.cgColor])
 scheduler.addPlan(tweenBackgroundColor, to: myView)
 ```
 
@@ -32,13 +33,13 @@ Tween's properties map to the following Core Animation properties:
 |:-----:|:--------------:|
 | delay  | delay |
 | duration  | duration |
-| from  | fromValue |
 | keyPath  | keyPath |
-| to  | toValue |
-| timingFunction  | timingFunction |
+| keyPositions  | keyTimes |
+| timingFunctions  | timingFunctions |
+| values  | values |
 
 No other Core Animation properties are presently supported. View our filed
-[feature requests](https://github.com/material-motion/material-motion-family-coreanimation-swift/labels/Feature%20request)
+[feature requests](https://github.com/material-motion/coreanimation-swift/labels/Feature%20request)
 to track progress on supporting additional functionality.
 
 ## Installation
@@ -52,9 +53,9 @@ to track progress on supporting additional functionality.
 >
 >     gem install cocoapods
 
-Add `MaterialMotionCoreAnimationFamily` to your `Podfile`:
+Add `MaterialMotionCoreAnimation` to your `Podfile`:
 
-    pod 'MaterialMotionCoreAnimationFamily'
+    pod 'MaterialMotionCoreAnimation'
 
 Then run the following command:
 
@@ -64,7 +65,7 @@ Then run the following command:
 
 Import the framework:
 
-    @import MaterialMotionCoreAnimationFamily;
+    @import MaterialMotionCoreAnimation;
 
 You will now have access to all of the APIs.
 
@@ -73,10 +74,10 @@ You will now have access to all of the APIs.
 Check out a local copy of the repo to access the Catalog application by running the following
 commands:
 
-    git clone https://github.com/material-motion/material-motion-family-coreanimation-swift.git
-    cd material-motion-family-coreanimation-swift
+    git clone https://github.com/material-motion/coreanimation-swift.git
+    cd coreanimation-swift
     pod install
-    open MaterialMotionCoreAnimationFamily.xcworkspace
+    open MaterialMotionCoreAnimation.xcworkspace
 
 ## Guides
 
@@ -90,18 +91,41 @@ Code snippets:
 ***In Objective-C:***
 
 ```objc
-MDMTween *tween = [[MDMTween alloc] initWithKeyPath:@"<#key path#>" duration:<#duration#>];
-tween.from = <#from value#>;
-tween.to = <#to value#>;
+MDMTween *tween = [[MDMTween alloc] initWithKeyPath:@"<#key path#>"
+                                           duration:<#duration#>
+                                             values:@[<#values...#>]];
 [scheduler addPlan:tween to:<#Object#>];
 ```
 
 ***In Swift:***
 
 ```swift
-let tween = Tween(<#key path#>, duration: <#duration#>)
-tween.from = <#from value#>
-tween.to = <#to value#>
+let tween = Tween(<#key path#>, duration: <#duration#>, values: [<#values...#>])
+scheduler.addPlan(tween, to: <#Object#>)
+```
+
+### How to animate a property with just a destination value
+
+Provide Tween with a single value and it will treat this value as the `toValue` of a
+CABasicAnimation. As per the Core Animation documentation:
+
+> Interpolates between the layer's current value of the property in the render tree and `toValue'.
+
+Code snippets:
+
+***In Objective-C:***
+
+```objc
+MDMTween *tween = [[MDMTween alloc] initWithKeyPath:@"<#key path#>"
+                                           duration:<#duration#>
+                                             values:@[<#value#>]];
+[scheduler addPlan:tween to:<#Object#>];
+```
+
+***In Swift:***
+
+```swift
+let tween = Tween(<#key path#>, duration: <#duration#>, values: [<#value#>])
 scheduler.addPlan(tween, to: <#Object#>)
 ```
 
@@ -116,24 +140,26 @@ Code snippets:
 ***In Objective-C:***
 
 ```objc
-[tween commitToValueTo:<#CALayer#>]
+[tween commitFirstValueTo:<#CALayer#>];
+[tween commitLastValueTo:<#CALayer#>];
 ```
 
 ***In Swift:***
 
 ```swift
-tween.commitToValue(to: <#CALayer#>)
+tween.commitFirstValue(to: <#CALayer#>)
+tween.commitLastValue(to: <#CALayer#>)
 ```
 
 ## Contributing
 
 We welcome contributions!
 
-Check out our [upcoming milestones](https://github.com/material-motion/material-motion-family-coreanimation-swift/milestones).
+Check out our [upcoming milestones](https://github.com/material-motion/coreanimation-swift/milestones).
 
-Learn more about [our team](https://material-motion.gitbooks.io/material-motion-team/content/),
-[our community](https://material-motion.gitbooks.io/material-motion-team/content/community/), and
-our [contributor essentials](https://material-motion.gitbooks.io/material-motion-team/content/essentials/).
+Learn more about [our team](https://material-motion.github.io/material-motion/team/),
+[our community](https://material-motion.github.io/material-motion/team/community/), and
+our [contributor essentials](https://material-motion.github.io/material-motion/team/essentials/).
 
 ## License
 

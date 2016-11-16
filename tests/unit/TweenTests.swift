@@ -16,12 +16,14 @@
 
 import XCTest
 import MaterialMotionRuntime
-import MaterialMotionCoreAnimationFamily
+import MaterialMotionCoreAnimation
 
 class TweenTests: XCTestCase {
 
-  func testDidPerformAndIdle() {
+  @available(*, deprecated)
+  func testDeprecatedAPIDidPerformAndIdle() {
     let animation = Tween("opacity", duration: 0.1)
+    animation.to = NSNumber(value: 1)
 
     let view = UIView()
 
@@ -30,7 +32,24 @@ class TweenTests: XCTestCase {
     delegate.didIdleExpectation = expectation(description: "Did idle")
     runtime.delegate = delegate
 
-    runtime.addPlan(animation, to: view)
+    runtime.addPlan(animation, to: view.layer)
+
+    waitForExpectations(timeout: 0.3)
+
+    XCTAssertEqual(runtime.activityState, .idle)
+  }
+
+  func testDidPerformAndIdle() {
+    let animation = Tween("opacity", duration: 0.1, values: [NSNumber(value: 1)])
+
+    let view = UIView()
+
+    let runtime = Runtime()
+    let delegate = TestableRuntimeDelegate()
+    delegate.didIdleExpectation = expectation(description: "Did idle")
+    runtime.delegate = delegate
+
+    runtime.addPlan(animation, to: view.layer)
 
     waitForExpectations(timeout: 0.3)
 

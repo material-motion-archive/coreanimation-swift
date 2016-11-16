@@ -17,29 +17,64 @@
 import UIKit
 import MaterialMotionRuntime
 
-class TweenPerformer: NSObject, ContinuousPerforming {
+class TweenPerformer: NSObject, ContinuousPerforming, ComposablePerforming {
   let target: CALayer
   required init(target: Any) {
-    if let view = target as? UIView {
-      self.target = view.layer
-    } else {
-      self.target = target as! CALayer
-    }
+    self.target = target as! CALayer
   }
 
   func addPlan(_ plan: Plan) {
     let tween = plan as! Tween
 
-    let animation = CABasicAnimation(keyPath: tween.keyPath)
-    animation.fromValue = tween.from
-    animation.toValue = tween.to
-    animation.timingFunction = tween.timingFunction
+    let values: [Any]
+    if tween.values.count > 0 {
+      values = tween.values
+    } else if let from = tween.from, let to = tween.to {
+      values = [from, to]
+    } else if let from = tween.from {
+      assertionFailure("Nil to value and non-nil from value is unsupported as of v2.0.0.")
+      values = []
+    } else if let to = tween.to {
+      values = [to]
+    } else {
+      assertionFailure("No value provided.")
+      values = []
+    }
+
+    let timingFunctions: [CAMediaTimingFunction]?
+    if tween.timingFunctions != nil {
+      timingFunctions = tween.timingFunctions
+    } else if let timingFunction = tween.timingFunction {
+      timingFunctions = [timingFunction]
+    } else {
+      timingFunctions = nil
+    }
+
+    let animation: CAAnimation
+    if values.count > 1 {
+      let keyframeAnimation = CAKeyframeAnimation(keyPath: tween.keyPath)
+      keyframeAnimation.values = values
+      keyframeAnimation.keyTimes = tween.keyPositions?.map { NSNumber(value: $0) }
+      keyframeAnimation.timingFunctions = timingFunctions
+      animation = keyframeAnimation
+    } else {
+      let basicAnimation = CABasicAnimation(keyPath: tween.keyPath)
+      basicAnimation.toValue = values.last
+      basicAnimation.timingFunction = timingFunctions?.first
+      animation = basicAnimation
+    }
     animation.duration = tween.duration
-    animation.beginTime = tween.delay
+    if let timeline = tween.timeline {
+      emitter.emitPlan(TimelineScrubbable(timeline))
+      animation.beginTime = target.convertTime(timeline.beginTime!.doubleValue, from: nil) + tween.delay
+    } else {
+      animation.beginTime = target.convertTime(CACurrentMediaTime(), from: nil) + tween.delay
+    }
+
+    guard let token = tokenGenerator.generate() else { return }
 
     CATransaction.begin()
 
-    guard let token = tokenGenerator.generate() else { return }
     CATransaction.setCompletionBlock {
       token.terminate()
     }
@@ -52,5 +87,10 @@ class TweenPerformer: NSObject, ContinuousPerforming {
   var tokenGenerator: IsActiveTokenGenerating!
   func set(isActiveTokenGenerator: IsActiveTokenGenerating) {
     tokenGenerator = isActiveTokenGenerator
+  }
+
+  var emitter: PlanEmitting!
+  func setPlanEmitter(_ planEmitter: PlanEmitting) {
+    emitter = planEmitter
   }
 }

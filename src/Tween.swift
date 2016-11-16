@@ -16,7 +16,11 @@
 
 import MaterialMotionRuntime
 
-/** Interpolate a CALayer property from one value to another. */
+/**
+ Interpolate a CALayer property from one value to another.
+
+ Expected target type: CALayer.
+ */
 @objc(MDMTween)
 public final class Tween: NSObject, Plan {
   /** The key path of the property whose value will be tweened. */
@@ -28,23 +32,48 @@ public final class Tween: NSObject, Plan {
   /** The delay of the animation in seconds. */
   public var delay: CFTimeInterval = 0
 
-  /** The initial value of the tween. See CABasicAnimation documentation for more details. */
-  public var from: AnyObject?
+  /**
+   An array of objects providing the value of the animation for each keyframe.
 
-  /** The final value of the tween. See CABasicAnimation documentation for more details. */
-  public var to: AnyObject?
+   If values.count == 1 then the sole value will be treated as the toValue in a basic animation.
+
+   See CAKeyframeAnimation documentation for more details.
+   */
+  public var values: [Any]
 
   /**
-   The timing function to apply to the animation.
+   An optional array of double values defining the pacing of the animation. Each position
+   corresponds to one value in the `values' array, and defines when the value should be used in the
+   animation function. Each value in the array is a floating point number in the range [0,1].
 
-   A nil timing function indicates linear pacing.
+   See CAKeyframeAnimation documentation for more details.
    */
-  public var timingFunction: CAMediaTimingFunction?
+  public var keyPositions: [Double]?
 
-  @objc(initWithKeyPath:duration:)
-  public init(_ keyPath: String, duration: CFTimeInterval) {
+  /**
+   An optional array of CAMediaTimingFunction objects. If the `values' array defines n keyframes,
+   there should be n-1 objects in the `timingFunctions' array. Each function describes the pacing of
+   one keyframe to keyframe segment.
+
+   If values.count == 1 then a single timing function may be provided to configure the basic
+   animation.
+
+   See CAKeyframeAnimation documentation for more details.
+   */
+  public var timingFunctions: [CAMediaTimingFunction]?
+
+  /**
+   Tweens that are associated with a timeline can be paused, rewound, and fast-forwarded by
+   attaching a scrubber to the timeline instance.
+   */
+  public var timeline: Timeline?
+
+  /** Initializes a tween instance with its required properties. */
+  @objc(initWithKeyPath:duration:values:)
+  public init(_ keyPath: String, duration: CFTimeInterval, values: [Any]) {
     self.keyPath = keyPath
     self.duration = duration
+    self.values = values
     super.init()
   }
 
@@ -54,11 +83,48 @@ public final class Tween: NSObject, Plan {
   }
   /** Returns a copy of this plan. */
   public func copy(with zone: NSZone? = nil) -> Any {
-    let tween = Tween(keyPath, duration: duration)
+    let tween = Tween(keyPath, duration: duration, values: values)
+    tween.keyPositions = keyPositions
+    tween.timingFunctions = timingFunctions
     tween.from = from
     tween.to = to
     tween.timingFunction = timingFunction
     tween.delay = delay
+    tween.timeline = timeline
     return tween
+  }
+
+  /**
+   Deprecated. Use `values` instead.
+
+   If both values and from are provided, then values will be preferred.
+   */
+  @available(*, deprecated, message: "Use values instead. Deprecated in v2.0.0.")
+  public var from: AnyObject?
+
+  /**
+   Deprecated. Use `values` instead.
+
+   If both values and from are provided, then values will be preferred.
+   */
+  @available(*, deprecated, message: "Use values instead. Deprecated in v2.0.0.")
+  public var to: AnyObject?
+
+  /**
+   Deprecated. Use `timingFunction = [timingFunction]` instead.
+
+   If both timingFunctions and timingFunction are provided, then timingFunctions will be preferred.
+   */
+  @available(*, deprecated, message: "Use timingFunction = [timingFunction] instead. Deprecated in v2.0.0.")
+  public var timingFunction: CAMediaTimingFunction?
+
+  /** Initializes a tween instance with its required properties. */
+  @available(*, deprecated, message: "Use initWithKeyPath:duration:values: instead. Deprecated in v2.0.0.")
+  @objc(initWithKeyPath:duration:)
+  public init(_ keyPath: String, duration: CFTimeInterval) {
+    self.keyPath = keyPath
+    self.duration = duration
+    self.values = []
+    super.init()
   }
 }

@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     self.window = window
 
     let rootViewController = CBCNodeListViewController(node: CBCCreateNavigationTree())
-    rootViewController.title = "Material Motion Core Animation Family"
+    rootViewController.title = "Core Animation for Material Motion (Swift)"
     window.rootViewController = UINavigationController(rootViewController: rootViewController)
 
     window.makeKeyAndVisible()
