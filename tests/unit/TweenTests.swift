@@ -23,6 +23,7 @@ class TweenTests: XCTestCase {
   @available(*, deprecated)
   func testDeprecatedAPIDidPerformAndIdle() {
     let animation = Tween("opacity", duration: 0.1)
+    animation.to = NSNumber(value: 1)
 
     let view = UIView()
 
@@ -39,7 +40,7 @@ class TweenTests: XCTestCase {
   }
 
   func testDidPerformAndIdle() {
-    let animation = Tween("opacity", duration: 0.1, values: [])
+    let animation = Tween("opacity", duration: 0.1, values: [NSNumber(value: 1)])
 
     let view = UIView()
 
