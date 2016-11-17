@@ -21,3 +21,9 @@ extension PopupMenuViewController {
     return ["Popup menu"]
   }
 }
+
+extension ScrollDrivenAnimationExampleViewController {
+  class func catalogBreadcrumbs() -> [String] {
+    return ["Scroll-driven animation"]
+  }
+}

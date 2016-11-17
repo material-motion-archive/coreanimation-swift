@@ -15,6 +15,7 @@
 		66C3CA4D1DDBB71400E49BFF /* TimelineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C3CA4B1DDBB71200E49BFF /* TimelineTests.swift */; };
 		66E620301D47D2340021B138 /* TestableRuntimeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E6202F1D47D2340021B138 /* TestableRuntimeDelegate.swift */; };
 		66ED61031DAD4D3C00E515BB /* TableOfContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ED61021DAD4D3C00E515BB /* TableOfContents.swift */; };
+		66FB046D1DDE695D0083C6AD /* ScrollDrivenAnimationExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FB046C1DDE695D0083C6AD /* ScrollDrivenAnimationExample.swift */; };
 		684FAFA086BF0726046A1922 /* Pods_MaterialMotionCoreAnimation_Catalog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40A55BA6ECA68DA85BDAE83D /* Pods_MaterialMotionCoreAnimation_Catalog.framework */; };
 		D05136411D5122C800438C0F /* PopupMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05136401D5122C800438C0F /* PopupMenuViewController.swift */; };
 		EEAE6707CB60E3474B089FB5 /* Pods_MaterialMotionCoreAnimation_UnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B6E300969F3ED1F367BDC81 /* Pods_MaterialMotionCoreAnimation_UnitTests.framework */; };
@@ -48,6 +49,7 @@
 		66C3CA4B1DDBB71200E49BFF /* TimelineTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineTests.swift; sourceTree = "<group>"; };
 		66E6202F1D47D2340021B138 /* TestableRuntimeDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestableRuntimeDelegate.swift; sourceTree = "<group>"; };
 		66ED61021DAD4D3C00E515BB /* TableOfContents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableOfContents.swift; path = Catalog/TableOfContents.swift; sourceTree = "<group>"; };
+		66FB046C1DDE695D0083C6AD /* ScrollDrivenAnimationExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollDrivenAnimationExample.swift; sourceTree = "<group>"; };
 		6B6E300969F3ED1F367BDC81 /* Pods_MaterialMotionCoreAnimation_UnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MaterialMotionCoreAnimation_UnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F6B0A888051193827944939 /* Pods-MaterialMotionCoreAnimation-Catalog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MaterialMotionCoreAnimation-Catalog.release.xcconfig"; path = "../../../Pods/Target Support Files/Pods-MaterialMotionCoreAnimation-Catalog/Pods-MaterialMotionCoreAnimation-Catalog.release.xcconfig"; sourceTree = "<group>"; };
 		D05136401D5122C800438C0F /* PopupMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupMenuViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				D05136401D5122C800438C0F /* PopupMenuViewController.swift */,
+				66FB046C1DDE695D0083C6AD /* ScrollDrivenAnimationExample.swift */,
 			);
 			name = examples;
 			path = ../..;
@@ -376,6 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D05136411D5122C800438C0F /* PopupMenuViewController.swift in Sources */,
+				66FB046D1DDE695D0083C6AD /* ScrollDrivenAnimationExample.swift in Sources */,
 				666FAA841D384A6B000363DA /* AppDelegate.swift in Sources */,
 				66ED61031DAD4D3C00E515BB /* TableOfContents.swift in Sources */,
 			);
