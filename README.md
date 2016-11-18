@@ -18,13 +18,13 @@ This library provides a bridge between
 curve.
 
 Use a Tween like you would use a CAKeyframeAnimation instance: provide a key path, duration, and
-an array of values.
+an array of values. Note that Tweens must be associated with CALayer instances.
 
 ```swift
 let tweenBackgroundColor = Tween("backgroundColor",
                                  duration: animDuration,
                                  values: [UIColor.orange.cgColor, UIColor.lightGray.cgColor])
-scheduler.addPlan(tweenBackgroundColor, to: myView)
+scheduler.addPlan(tweenBackgroundColor, to: myView.layer)
 ```
 
 Tween's properties map to the following Core Animation properties:
@@ -94,14 +94,14 @@ Code snippets:
 MDMTween *tween = [[MDMTween alloc] initWithKeyPath:@"<#key path#>"
                                            duration:<#duration#>
                                              values:@[<#values...#>]];
-[scheduler addPlan:tween to:<#Object#>];
+[scheduler addPlan:tween to:<#CALayer#>];
 ```
 
 ***In Swift:***
 
 ```swift
 let tween = Tween(<#key path#>, duration: <#duration#>, values: [<#values...#>])
-scheduler.addPlan(tween, to: <#Object#>)
+scheduler.addPlan(tween, to: <#CALayer#>)
 ```
 
 ### How to animate a property with just a destination value
@@ -119,14 +119,14 @@ Code snippets:
 MDMTween *tween = [[MDMTween alloc] initWithKeyPath:@"<#key path#>"
                                            duration:<#duration#>
                                              values:@[<#value#>]];
-[scheduler addPlan:tween to:<#Object#>];
+[scheduler addPlan:tween to:<#CALayer#>];
 ```
 
 ***In Swift:***
 
 ```swift
 let tween = Tween(<#key path#>, duration: <#duration#>, values: [<#value#>])
-scheduler.addPlan(tween, to: <#Object#>)
+scheduler.addPlan(tween, to: <#CALayer#>)
 ```
 
 ### How to commit Tween values to a layer
