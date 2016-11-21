@@ -2,6 +2,9 @@
 
 [![Build Status](https://travis-ci.org/material-motion/coreanimation-swift.svg?branch=develop)](https://travis-ci.org/material-motion/coreanimation-swift)
 [![codecov](https://codecov.io/gh/material-motion/coreanimation-swift/branch/develop/graph/badge.svg)](https://codecov.io/gh/material-motion/coreanimation-swift)
+[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/MaterialMotionCoreAnimation.svg)](https://cocoapods.org/pods/MaterialMotionCoreAnimation)
+[![Platform](https://img.shields.io/cocoapods/p/MaterialMotionCoreAnimation.svg)](http://cocoadocs.org/docsets/MaterialMotionCoreAnimation)
+[![Docs](https://img.shields.io/cocoapods/metrics/doc-percent/MaterialMotionCoreAnimation.svg)](http://cocoadocs.org/docsets/MaterialMotionCoreAnimation)
 
 This library provides a bridge between
 [Core Animation](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/CoreAnimation_guide/Introduction/Introduction.html) and the
