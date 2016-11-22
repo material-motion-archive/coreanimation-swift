@@ -78,90 +78,32 @@ class PopupMenuViewController: UIViewController {
     self.view.layer.insertSublayer(additionalBtn3!, below: mainBtn!.layer)
   }
 
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-
   func handleTap(gestureRecognizer: UIGestureRecognizer) {
     let bounceTimingFunction = CAMediaTimingFunction(controlPoints: 0.5, 1.6, 1, 1)
 
-    // Make main button smaller
-    let initialTransform = CATransform3DIdentity
-    let endTransform = CATransform3DMakeScale(0.6, 0.6, 1.0)
-    let smallerBtn = Tween("transform",
-                           duration: animDuration,
-                           values: [NSValue(caTransform3D: buttonsShowing ? endTransform : initialTransform),
-                                    NSValue(caTransform3D: buttonsShowing ? initialTransform : endTransform)])
-    smallerBtn.timingFunctions = [bounceTimingFunction]
+    runtime.tween(withDuration: animDuration, timingFunction: bounceTimingFunction) {
+      mainBtn!.layer.transform = buttonsShowing ? CATransform3DIdentity : CATransform3DMakeScale(0.6, 0.6, 1.0)
+      mainBtn!.layer.shadowRadius = buttonsShowing ? 5 : 2
+      mainBtn!.backgroundColor = buttonsShowing ? .orange : .lightGray
 
-    // Main button shadow smaller
-    let initialRadius = 5
-    let endRadius = 2
-    let smallerShadow = Tween("shadowRadius",
-                              duration: animDuration,
-                              values: [NSNumber(value: buttonsShowing ? endRadius : initialRadius),
-                                       NSNumber(value: buttonsShowing ? initialRadius : endRadius)])
-    smallerShadow.timingFunctions = [bounceTimingFunction]
+      additionalBtn1!.opacity = buttonsShowing ? 0 : 1
+      additionalBtn2!.opacity = buttonsShowing ? 0 : 1
+      additionalBtn3!.opacity = buttonsShowing ? 0 : 1
 
-    // Main button grey
-    let initialColor = UIColor.orange.cgColor
-    let endColor = UIColor.lightGray.cgColor
-    let greyButton = Tween("backgroundColor",
-                           duration: animDuration,
-                           values: [buttonsShowing ? endColor : initialColor,
-                                    buttonsShowing ? initialColor : endColor])
-
-    // Move and fade buttons
-    let btn1Move = generateBtnMove(btn: additionalBtn1!, distance: distFromMainButton, angle: angle1, timing: bounceTimingFunction)
-    let btn1Fade = generateBtnFade(btn: additionalBtn1!)
-
-    let btn2Move = generateBtnMove(btn: additionalBtn2!, distance: distFromMainButton, angle: angle2, timing: bounceTimingFunction)
-    let btn2Fade = generateBtnFade(btn: additionalBtn2!)
-
-    let btn3Move = generateBtnMove(btn: additionalBtn3!, distance: distFromMainButton, angle: angle3, timing: bounceTimingFunction)
-    let btn3Fade = generateBtnFade(btn: additionalBtn3!)
-
-    func addAndCommit(tween: Tween, to target: CALayer) {
-      runtime.addPlan(tween, to: target)
-      tween.commitLastValue(to: target)
+      let radialButtons = [
+        (additionalBtn1!, angle1),
+        (additionalBtn2!, angle2),
+        (additionalBtn3!, angle3)
+      ]
+      let position = mainBtn!.layer.position
+      for pair in radialButtons {
+        pair.0.position = buttonsShowing
+          ? position
+          : CGPoint(x: position.x - CGFloat(sinf(pair.1)) * distFromMainButton,
+                    y: position.y - CGFloat(cosf(pair.1)) * distFromMainButton)
+      }
     }
-    addAndCommit(tween: smallerBtn, to: mainBtn!.layer)
-    addAndCommit(tween: greyButton, to: mainBtn!.layer)
-    addAndCommit(tween: smallerShadow, to: mainBtn!.layer)
-    addAndCommit(tween: btn1Move, to: additionalBtn1!)
-    addAndCommit(tween: btn1Fade, to: additionalBtn1!)
-    addAndCommit(tween: btn2Move, to: additionalBtn2!)
-    addAndCommit(tween: btn2Fade, to: additionalBtn2!)
-    addAndCommit(tween: btn3Move, to: additionalBtn3!)
-    addAndCommit(tween: btn3Fade, to: additionalBtn3!)
 
     buttonsShowing = !buttonsShowing
-  }
-
-  func generateBtnMove(btn: CALayer, distance: CGFloat, angle: Float, timing: CAMediaTimingFunction) -> Tween {
-    let initialPos = mainBtn!.layer.position
-
-    let x = initialPos.x - CGFloat(sinf(angle)) * distance
-    let y = initialPos.y - CGFloat(cosf(angle)) * distance
-    let endPos = CGPoint(x: x, y: y)
-
-    let move = Tween("position",
-                     duration: animDuration,
-                     values: [NSValue(cgPoint: buttonsShowing ? endPos : initialPos),
-                              NSValue(cgPoint: buttonsShowing ? initialPos : endPos)])
-    move.timingFunctions = [timing]
-
-    return move
-  }
-
-  func generateBtnFade(btn: CALayer) -> Tween {
-    let initialOpacity = NSNumber(value: 0.0)
-    let endOpacity = NSNumber(value: 1.0)
-
-    return Tween("opacity",
-                 duration: animDuration,
-                 values: [buttonsShowing ? endOpacity : initialOpacity,
-                          buttonsShowing ? initialOpacity : endOpacity])
   }
 }
