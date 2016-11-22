@@ -25,15 +25,4 @@ extension Tween {
   public func commitLastValue(to target: CALayer) {
     target.setValue(values.last, forKeyPath: keyPath)
   }
-
-  /** Commits the tween's from value to the given target. */
-  @available(*, deprecated, message: "Use commitFirstValue instead. Deprecated in v1.2.0.")
-  public func commitFromValue(to target: CALayer) {
-    target.setValue(from, forKeyPath: keyPath)
-  }
-  /** Commits the tween's to value to the given target. */
-  @available(*, deprecated, message: "Use commitLastValue instead. Deprecated in v1.2.0.")
-  public func commitToValue(to target: CALayer) {
-    target.setValue(to, forKeyPath: keyPath)
-  }
 }

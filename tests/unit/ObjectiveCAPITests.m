@@ -30,9 +30,6 @@
   tween.keyPositions = @[];
   tween.timingFunctions = @[];
 
-  tween.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
-  tween.from = @2;
-  tween.to = @2;
   XCTAssertEqual(tween.keyPath, @"opacity");
   XCTAssertEqual(tween.duration, 0.1);
 }

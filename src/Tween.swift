@@ -86,45 +86,8 @@ public final class Tween: NSObject, Plan {
     let tween = Tween(keyPath, duration: duration, values: values)
     tween.keyPositions = keyPositions
     tween.timingFunctions = timingFunctions
-    tween.from = from
-    tween.to = to
-    tween.timingFunction = timingFunction
     tween.delay = delay
     tween.timeline = timeline
     return tween
-  }
-
-  /**
-   Deprecated. Use `values` instead.
-
-   If both values and from are provided, then values will be preferred.
-   */
-  @available(*, deprecated, message: "Use values instead. Deprecated in v2.0.0.")
-  public var from: AnyObject?
-
-  /**
-   Deprecated. Use `values` instead.
-
-   If both values and from are provided, then values will be preferred.
-   */
-  @available(*, deprecated, message: "Use values instead. Deprecated in v2.0.0.")
-  public var to: AnyObject?
-
-  /**
-   Deprecated. Use `timingFunction = [timingFunction]` instead.
-
-   If both timingFunctions and timingFunction are provided, then timingFunctions will be preferred.
-   */
-  @available(*, deprecated, message: "Use timingFunction = [timingFunction] instead. Deprecated in v2.0.0.")
-  public var timingFunction: CAMediaTimingFunction?
-
-  /** Initializes a tween instance with its required properties. */
-  @available(*, deprecated, message: "Use initWithKeyPath:duration:values: instead. Deprecated in v2.0.0.")
-  @objc(initWithKeyPath:duration:)
-  public init(_ keyPath: String, duration: CFTimeInterval) {
-    self.keyPath = keyPath
-    self.duration = duration
-    self.values = []
-    super.init()
   }
 }

@@ -26,29 +26,8 @@ class TweenPerformer: NSObject, ContinuousPerforming, ComposablePerforming {
   func addPlan(_ plan: Plan) {
     let tween = plan as! Tween
 
-    let values: [Any]
-    if tween.values.count > 0 {
-      values = tween.values
-    } else if let from = tween.from, let to = tween.to {
-      values = [from, to]
-    } else if let from = tween.from {
-      assertionFailure("Nil to value and non-nil from value is unsupported as of v2.0.0.")
-      values = []
-    } else if let to = tween.to {
-      values = [to]
-    } else {
-      assertionFailure("No value provided.")
-      values = []
-    }
-
-    let timingFunctions: [CAMediaTimingFunction]?
-    if tween.timingFunctions != nil {
-      timingFunctions = tween.timingFunctions
-    } else if let timingFunction = tween.timingFunction {
-      timingFunctions = [timingFunction]
-    } else {
-      timingFunctions = nil
-    }
+    let values = tween.values
+    let timingFunctions = tween.timingFunctions
 
     let animation: CAAnimation
     if values.count > 1 {
