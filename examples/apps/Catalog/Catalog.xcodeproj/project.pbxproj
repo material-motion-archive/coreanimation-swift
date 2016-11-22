@@ -238,7 +238,6 @@
 					666FAA931D384A6B000363DA = {
 						CreatedOnToolsVersion = 7.3.1;
 						LastSwiftMigration = 0800;
-						TestTargetID = 666FAA7F1D384A6B000363DA;
 					};
 				};
 			};
@@ -534,7 +533,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4A197430E3940F9D1EDF9E65 /* Pods-MaterialMotionCoreAnimation-UnitTests.debug.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = UnitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -543,7 +541,6 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "UnitTests/UnitTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Catalog.app/Catalog";
 			};
 			name = Debug;
 		};
@@ -551,7 +548,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 459560D2BE279216236EF137 /* Pods-MaterialMotionCoreAnimation-UnitTests.release.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = UnitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -560,7 +556,6 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "UnitTests/UnitTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Catalog.app/Catalog";
 			};
 			name = Release;
 		};
