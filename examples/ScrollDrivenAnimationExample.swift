@@ -19,7 +19,7 @@ import MaterialMotionRuntime
 import MaterialMotionCoreAnimation
 
 // This example demonstrates how to control a Tween animation using a Timeline.
-class ScrollDrivenAnimationExampleViewController: UIViewController, UIScrollViewDelegate {
+public class ScrollDrivenAnimationExampleViewController: UIViewController, UIScrollViewDelegate {
 
   let runtime = Runtime()
 
@@ -27,7 +27,7 @@ class ScrollDrivenAnimationExampleViewController: UIViewController, UIScrollView
   let timeline = Timeline()
 
   var scrollView: UIScrollView!
-  override func viewDidLoad() {
+  override public func viewDidLoad() {
     super.viewDidLoad()
 
     view.backgroundColor = .white
@@ -63,7 +63,7 @@ class ScrollDrivenAnimationExampleViewController: UIViewController, UIScrollView
 
   // MARK: UIScrollViewDelegate
 
-  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+  public func scrollViewDidScroll(_ scrollView: UIScrollView) {
     let offset = scrollView.contentOffset.y + scrollView.contentInset.top
 
     // The magic. When we set this value it informs the timeline of the change, which then informs

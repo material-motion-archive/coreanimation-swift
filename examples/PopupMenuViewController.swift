@@ -24,7 +24,7 @@ let angle1: Float = Float(M_PI) / 3.0
 let angle2: Float = 0
 let angle3: Float = -angle1
 
-class PopupMenuViewController: UIViewController {
+public class PopupMenuViewController: UIViewController {
 
   var mainBtn: UIView?
   var additionalBtn1: CALayer?
@@ -35,7 +35,7 @@ class PopupMenuViewController: UIViewController {
 
   let runtime = Runtime()
 
-  override func viewDidLoad() {
+  override public func viewDidLoad() {
     super.viewDidLoad()
 
     self.view.backgroundColor = .white

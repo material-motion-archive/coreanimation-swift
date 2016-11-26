@@ -1,13 +1,19 @@
 PODS:
   - CatalogByConvention (2.0.0)
-  - MaterialMotionCoreAnimation (2.0.0):
+  - MaterialMotionCoreAnimation/examples (2.0.0):
+    - MaterialMotionCoreAnimation/lib
     - MaterialMotionRuntime (~> 6.0)
-  - MaterialMotionRuntime (6.0.0)
+  - MaterialMotionCoreAnimation/lib (2.0.0):
+    - MaterialMotionRuntime (~> 6.0)
+  - MaterialMotionCoreAnimation/tests (2.0.0):
+    - MaterialMotionCoreAnimation/lib
+    - MaterialMotionRuntime (~> 6.0)
+  - MaterialMotionRuntime (6.0.1)
 
 DEPENDENCIES:
   - CatalogByConvention
-  - MaterialMotionCoreAnimation (from `./`)
-  - MaterialMotionRuntime
+  - MaterialMotionCoreAnimation/examples (from `./`)
+  - MaterialMotionCoreAnimation/tests (from `./`)
 
 EXTERNAL SOURCES:
   MaterialMotionCoreAnimation:
@@ -15,9 +21,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   CatalogByConvention: be55c2263132e4f9f59299ac8a528ee8715b3275
-  MaterialMotionCoreAnimation: 2aeed14a85e8548cb6ad216abb35c945103ea914
-  MaterialMotionRuntime: 89cb395df1ce02134fc67a16b42dc4492b6c514c
+  MaterialMotionCoreAnimation: 62431516c134ff6302b0ad4fa0bcf0c0329af577
+  MaterialMotionRuntime: 1c99a092ffc82d0cfd4e69cc353bd0f69314920d
 
-PODFILE CHECKSUM: 324a763c20e46395a80439d82b6dadd51839da48
+PODFILE CHECKSUM: 5a1c72d23d9fc5da7c0896deeca76339dfb8fcd2
 
 COCOAPODS: 1.1.1

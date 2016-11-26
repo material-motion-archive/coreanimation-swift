@@ -16,6 +16,8 @@
 
 // MARK: Catalog by convention
 
+import MaterialMotionCoreAnimation
+
 extension PopupMenuViewController {
   class func catalogBreadcrumbs() -> [String] {
     return ["Popup menu"]
