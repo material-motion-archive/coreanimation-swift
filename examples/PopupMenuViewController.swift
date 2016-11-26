@@ -33,7 +33,7 @@ public class PopupMenuViewController: UIViewController {
 
   var buttonsShowing: Bool = false
 
-  let runtime = Runtime()
+  let runtime = MotionRuntime()
 
   override public func viewDidLoad() {
     super.viewDidLoad()

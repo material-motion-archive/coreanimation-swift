@@ -18,11 +18,11 @@ import XCTest
 import Foundation
 import MaterialMotionRuntime
 
-class TestableRuntimeDelegate: NSObject, RuntimeDelegate {
+class TestableRuntimeDelegate: NSObject, MotionRuntimeDelegate {
   var activityStateDidChange = false
   var didIdleExpectation: XCTestExpectation?
 
-  func runtimeActivityStateDidChange(_ runtime: Runtime) {
+  func motionRuntimeActivityStateDidChange(_ runtime: MotionRuntime) {
     self.activityStateDidChange = true
 
     if runtime.activityState == .idle {

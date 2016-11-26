@@ -49,7 +49,7 @@ extension UIView {
 
 var didInject = false
 
-extension Runtime {
+extension MotionRuntime {
   func installCoreAnimationTweenActionHandler() {
     if didInject {
       return

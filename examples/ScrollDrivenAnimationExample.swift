@@ -21,7 +21,7 @@ import MaterialMotionCoreAnimation
 // This example demonstrates how to control a Tween animation using a Timeline.
 public class ScrollDrivenAnimationExampleViewController: UIViewController, UIScrollViewDelegate {
 
-  let runtime = Runtime()
+  let runtime = MotionRuntime()
 
   // We use this timeline to map the scroll view's content offset to our tween animation.
   let timeline = Timeline()
@@ -47,7 +47,7 @@ public class ScrollDrivenAnimationExampleViewController: UIViewController, UIScr
     // In order to control the tween's progress we must attach a scrubber to the timeline.
     // If we detach the scrubber (by setting it to nil) the animation will continue from where it
     // left off.
-    timeline.scrubber = TimelineScrubber()
+    timeline.attachScrubber(withTimeOffset: 0)
 
     // Note that we're hacking the duration value here to represent positional units. This works
     // because we never actually intend to disconnect the scrubber from the timeline. If we ever

@@ -23,10 +23,11 @@ class TimelineTests: XCTestCase {
   func testScrubberModifiesLayerTimeOffset() {
     let view = UIView()
 
-    let runtime = Runtime()
+    let runtime = MotionRuntime()
     let timeline = Timeline()
-    let scrubber = TimelineScrubber()
-    timeline.scrubber = scrubber
+    timeline.attachScrubber(withTimeOffset: 0)
+
+    let scrubber = timeline.scrubber!
 
     let animation = Tween("opacity", duration: 0.1, values: [0, 1])
     animation.timeline = timeline
@@ -43,10 +44,11 @@ class TimelineTests: XCTestCase {
   func testDetachedScrubberDoesNotModifyLayerTimeOffset() {
     let view = UIView()
 
-    let runtime = Runtime()
+    let runtime = MotionRuntime()
     let timeline = Timeline()
-    let scrubber = TimelineScrubber()
-    timeline.scrubber = scrubber
+    timeline.attachScrubber(withTimeOffset: 0)
+
+    let scrubber = timeline.scrubber!
 
     let animation = Tween("opacity", duration: 0.1, values: [0, 1])
     animation.timeline = timeline
@@ -54,7 +56,8 @@ class TimelineTests: XCTestCase {
 
     XCTAssertEqual(view.layer.timeOffset, TimeInterval(timeline.beginTime!.doubleValue))
 
-    timeline.scrubber = nil
+    timeline.detachScrubber()
+
     scrubber.timeOffset = 0.1
 
     XCTAssertNotEqual(view.layer.timeOffset,

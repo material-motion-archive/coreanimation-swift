@@ -25,7 +25,7 @@ class TweenTests: XCTestCase {
 
     let view = UIView()
 
-    let runtime = Runtime()
+    let runtime = MotionRuntime()
     let delegate = TestableRuntimeDelegate()
     delegate.didIdleExpectation = expectation(description: "Did idle")
     runtime.delegate = delegate

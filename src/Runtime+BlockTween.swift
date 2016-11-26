@@ -16,7 +16,7 @@
 
 import MaterialMotionRuntime
 
-extension Runtime {
+extension MotionRuntime {
   /**
    Generates Tween plans for any animatable properties that are modified during the animations.
 
