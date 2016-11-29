@@ -14,19 +14,18 @@
  limitations under the License.
  */
 
-import XCTest
-import Foundation
-import MaterialMotionRuntime
+import UIKit
 
-class TestableRuntimeDelegate: NSObject, MotionRuntimeDelegate {
-  var activityStateDidChange = false
-  var didIdleExpectation: XCTestExpectation?
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
-  func motionRuntimeActivityStateDidChange(_ runtime: MotionRuntime) {
-    self.activityStateDidChange = true
+  var window: UIWindow?
 
-    if runtime.activityState == .idle {
-      didIdleExpectation?.fulfill()
-    }
+  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+    let window = UIWindow(frame: UIScreen.main.bounds)
+    self.window = window
+    window.rootViewController = UINavigationController()
+    window.makeKeyAndVisible()
+    return true
   }
 }
